@@ -9,6 +9,7 @@ type(scope): short description
 ```
 
 The detailed description is optional
+The description should be written in lowercase
 
 ## Project Scopes
 
