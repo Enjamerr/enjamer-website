@@ -1,4 +1,3 @@
-
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import YAML from 'yaml';
@@ -20,19 +19,18 @@ if (!Array.isArray(authors) || authors.length === 0) {
 }
 
 if (branch === 'adding-new-identity') {
-  const subjects = execFileSync(
-    'git',
-    ['log', '--format=%s', `${base}..${head}`],
-    { encoding: 'utf8' },
-  ).trim().split('\n').filter(Boolean);
+  const subjects = execFileSync('git', ['log', '--format=%s', `${base}..${head}`], {
+    encoding: 'utf8',
+  })
+    .trim()
+    .split('\n')
+    .filter(Boolean);
 
   if (
     subjects.length === 0 ||
     !subjects.every((subject) => /^chore\(identity\): .+/.test(subject))
   ) {
-    console.error(
-      'ERROR: The adding-new-identity branch only accepts chore(identity) commits.',
-    );
+    console.error('ERROR: The adding-new-identity branch only accepts chore(identity) commits.');
     process.exit(1);
   }
 

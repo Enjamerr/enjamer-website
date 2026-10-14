@@ -10,7 +10,6 @@ type(scope): short description
 
 The detailed description is optional
 
-
 ## Project Scopes
 
 - `example`: example description of the scope.

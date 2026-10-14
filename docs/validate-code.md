@@ -10,14 +10,14 @@ Before pushing changes to the repository or creating a Pull Request, each develo
 
 ## Mandatory validations
 
-| Command | Function |
-|---|---|
-| `npm run lint -- --max-warnings=0` | Detects ESLint errors and warnings. |
-| `npm run format:check` | Checks that the code complies with Prettier rules. |
-| `npx commitlint --from "$(git merge-base main HEAD)" --to HEAD` | Validates all commits in the current branch against the commit rules. |
-| `node scripts/validate-branch.js "$(git branch --show-current)" "$(git merge-base main HEAD)" HEAD` | Validates the branch name and registered username. |
-| `node scripts/validate-commit-authors.js "$(git merge-base main HEAD)" HEAD` | Validates commit authors against registered identities. |
-| `npm run build` | Checks that the project compiles correctly. |
+| Command                                                                                             | Function                                                              |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `npm run lint -- --max-warnings=0`                                                                  | Detects ESLint errors and warnings.                                   |
+| `npm run format:check`                                                                              | Checks that the code complies with Prettier rules.                    |
+| `npx commitlint --from "$(git merge-base main HEAD)" --to HEAD`                                     | Validates all commits in the current branch against the commit rules. |
+| `node scripts/validate-branch.js "$(git branch --show-current)" "$(git merge-base main HEAD)" HEAD` | Validates the branch name and registered username.                    |
+| `node scripts/validate-commit-authors.js "$(git merge-base main HEAD)" HEAD`                        | Validates commit authors against registered identities.               |
+| `npm run build`                                                                                     | Checks that the project compiles correctly.                           |
 
 All validations must complete successfully before requesting integration.
 
@@ -69,9 +69,9 @@ Example:
 
 ```yaml
 authors:
-  - name: "John Doe Pérez Martínez"
-    username: "jperezatenjamer"
-    email: "jdperezm@enjamer.com"
+  - name: 'John Doe Pérez Martínez'
+    username: 'jperezatenjamer'
+    email: 'jdperezm@enjamer.com'
 ```
 
 To configure the mentioned credentials, visit `https://docs.enjamer.com`
