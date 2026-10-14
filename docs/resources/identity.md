@@ -3,7 +3,7 @@
 Developers who are not yet registered in `commit-authors.yml` must use the special branch:
 
 ```text
-  adding-new-identity
+  <developer-username>-adding-new-identity
 ```
 
 In `commit-authors.yml`, the new developer's identity must be added with the following format:
@@ -22,10 +22,10 @@ This branch is reserved exclusively for identity registration.
 All commits in this branch must follow the format:
 
 ```bash
-  chore(identity): add new developer
+  chore(identity): add new identity
 ```
 
-The branch validator rejects `adding-new-identity` if it contains commits with other types or scopes.
+The branch validator rejects `<developer-username>-adding-new-identity` if it contains commits with other types or scopes.
 
 Automatic author validation is skipped for these identity-registration commits.
 
