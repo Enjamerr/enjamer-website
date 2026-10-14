@@ -7,5 +7,9 @@ types:
 
 scopes:
   - docs
+  - component
+  - deps
+  - ci/cd
   - config
+  - multiple
   - identity
