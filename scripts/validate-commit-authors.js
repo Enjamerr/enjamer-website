@@ -1,4 +1,3 @@
-
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import YAML from 'yaml';
@@ -34,11 +33,9 @@ for (const author of authors) {
   identities.add(identity);
 }
 
-const output = execFileSync(
-  'git',
-  ['log', '--format=%H%x00%an%x00%ae%x00%s', `${base}..${head}`],
-  { encoding: 'utf8' },
-);
+const output = execFileSync('git', ['log', '--format=%H%x00%an%x00%ae%x00%s', `${base}..${head}`], {
+  encoding: 'utf8',
+});
 
 let errors = 0;
 let skipped = 0;
@@ -46,7 +43,6 @@ let skipped = 0;
 for (const line of output.split('\n').filter(Boolean)) {
   const [sha, username, email, subject] = line.split('\0');
 
-  
   // Exception: human review
   if (/^chore\(identity\): .+/.test(subject)) {
     console.log(`HUMAN REVIEW: ${sha.slice(0, 7)} - ${subject}`);
@@ -57,9 +53,7 @@ for (const line of output.split('\n').filter(Boolean)) {
   const identity = `${username}\0${email}`;
 
   if (!identities.has(identity)) {
-    console.error(
-      `ERROR ${sha.slice(0, 7)}: unauthorized author: ${username} <${email}>`,
-    );
+    console.error(`ERROR ${sha.slice(0, 7)}: unauthorized author: ${username} <${email}>`);
     errors++;
   }
 }

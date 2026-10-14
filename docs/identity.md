@@ -10,9 +10,9 @@ In `commit-authors.yml`, the new developer's identity must be added with the fol
 
 ```yaml
 authors:
-  - name: "John Doe Pérez Martínez"
-    username: "jperezatenjamer"
-    email: "jdperezm@enjamer.com"
+  - name: 'John Doe Pérez Martínez'
+    username: 'jperezatenjamer'
+    email: 'jdperezm@enjamer.com'
 ```
 
 # Branch
