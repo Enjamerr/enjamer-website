@@ -1,0 +1,11 @@
+types:
+  - feat
+  - fix
+  - refactor
+  - docs
+  - chore
+
+scopes:
+  - docs
+  - config
+  - identity

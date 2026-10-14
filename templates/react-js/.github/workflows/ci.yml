@@ -1,0 +1,68 @@
+
+name: CI - Enjamer
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate React Project
+    runs-on: [self-hosted, Linux, X64]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate branch name
+        env:
+          BRANCH_NAME: ${{ github.head_ref }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          git fetch origin "$BASE_SHA"
+          git fetch origin "$HEAD_SHA"
+          MERGE_BASE=$(git merge-base "$BASE_SHA" "$HEAD_SHA")
+          node scripts/validate-branch.js "$BRANCH_NAME" "$MERGE_BASE" "$HEAD_SHA"
+
+      - name: Validate ESLint
+        run: npm run lint -- --max-warnings=0
+
+      - name: Validate Prettier
+        run: npm run format:check
+
+      - name: Validate commits
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          MERGE_BASE=$(git merge-base "$BASE_SHA" "$HEAD_SHA")
+          npx commitlint --from "$MERGE_BASE" --to "$HEAD_SHA"
+
+      - name: Validate commit authors
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          MERGE_BASE=$(git merge-base "$BASE_SHA" "$HEAD_SHA")
+          node scripts/validate-commit-authors.js "$MERGE_BASE" "$HEAD_SHA"
+
+      - name: Validate build
+        run: npm run build
