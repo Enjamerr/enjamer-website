@@ -1,18 +1,13 @@
-import heroImg from '../assets/hero.png';
-import reactLogo from '../assets/react.svg';
-import viteLogo from '../assets/vite.svg';
-
 function Home() {
   return (
     <>
       <section id="center">
         <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+          <img src="/brand/isotipo-oscuro.png" width="170" height="179" alt="Isotipo de Enjamer" />
         </div>
         <div>
-          <h1>Get started</h1>
+          <h1>Enjamer</h1>
+          <p>Tecnología construida en comunidad.</p>
         </div>
       </section>
 
@@ -20,12 +15,12 @@ function Home() {
 
       <section id="next-steps">
         <div id="docs">
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
+          <h2>Servicios</h2>
+          <p>Soluciones a tu medida.</p>
         </div>
         <div id="social">
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
+          <h2>Comunidad</h2>
+          <p>Creamos juntos.</p>
         </div>
       </section>
 
