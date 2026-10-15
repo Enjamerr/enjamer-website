@@ -44,11 +44,11 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-family: 'Inter', system-ui, sans-serif;
+  gap: 4px;
+  font-family: 'Cinzel', serif;
   font-weight: 700;
-  font-size: 20px;
-  letter-spacing: -0.4px;
+  font-size: 26px;
+  letter-spacing: 1px;
   color: #fff;
   text-decoration: none;
   white-space: nowrap;
@@ -57,6 +57,14 @@
 .brand__logo {
   display: block;
   border-radius: 8px;
+}
+
+.brand__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
 }
 
 .desktop-nav {
