@@ -1,5 +1,6 @@
 .services {
   --services-bottom-space: clamp(6rem, 11vw, 10rem);
+  --services-gradient-gap: clamp(4rem, 8vw, 6.5rem);
   --en-violet: #520fb8;
   --en-indigo: #4f46e5;
   --en-blue: #168bff;
@@ -18,7 +19,8 @@
   --services-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   position: relative;
   margin-top: -1px;
-  padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 5vw, 4rem) var(--services-bottom-space);
+  padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 5vw, 4rem)
+    calc(var(--services-bottom-space) + var(--services-gradient-gap));
   color: #f5f7fa;
   background:
     radial-gradient(900px 480px at 12% 38%, rgb(82 15 184 / 20%), transparent 62%),
@@ -43,31 +45,6 @@
     rgb(8 13 20 / 42%) 64%,
     rgb(8 13 20 / 16%) 84%,
     rgb(8 13 20 / 0%) 100%
-  );
-  z-index: 0;
-  pointer-events: none;
-}
-.services::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: var(--services-bottom-space);
-  background: linear-gradient(
-    180deg,
-    rgb(12 17 25 / 0%) 0%,
-    #0c1119 15%,
-    #0c1119 20%,
-    #0c1119 24%,
-    #0c1119 28%,
-    #101722 48%,
-    #192330 64%,
-    #2b3746 76%,
-    #4b5869 85%,
-    #7c8899 92%,
-    #b8c1ce 97%,
-    #f6f8fc 100%
   );
   z-index: 0;
   pointer-events: none;
