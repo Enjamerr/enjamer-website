@@ -42,6 +42,9 @@
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: 700;
   font-size: 20px;
@@ -49,6 +52,11 @@
   color: #fff;
   text-decoration: none;
   white-space: nowrap;
+}
+
+.brand__logo {
+  display: block;
+  border-radius: 8px;
 }
 
 .desktop-nav {
