@@ -1,0 +1,120 @@
+.header {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  padding: clamp(4rem, 10vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+  overflow: hidden;
+  background: #111820;
+  color: #fff;
+  text-align: center;
+  z-index: 0;
+}
+.header__background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+}
+.header__video {
+  visibility: hidden;
+}
+.header[data-video='visible'] .header__video {
+  visibility: visible;
+}
+
+.header[data-phase='ready'] .header__video {
+  filter: blur(6px);
+}
+.header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgb(8 17 26 / 35%);
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.header[data-phase='ready']::after {
+  opacity: 1;
+}
+.header__content {
+  width: 100%;
+  max-width: 64rem;
+}
+.header [data-hero-animate] {
+  visibility: hidden;
+}
+.header__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.header__actions button {
+  cursor: pointer;
+  border: 1px solid #ffffff20;
+  border-radius: 8px;
+  color: #fff;
+  background: linear-gradient(115deg, #520fb8, #4f46e5);
+  outline: none;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 13px 23px;
+  line-height: 1.4;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+  display: inline-flex;
+  box-shadow:
+    5px 5px 14px #05070e,
+    -2px -2px 8px #9b70ff15;
+  font:
+    600 0.875rem / 1.4 Inter,
+    sans-serif;
+}
+.header__actions button:first-child:hover {
+  box-shadow: 0 8px 30px #520fb850;
+}
+.header__actions button:hover {
+  transform: translateY(-3px) !important;
+}
+.header__actions button:active {
+  transform: scale(0.99) !important;
+}
+.header__actions .header__secondary {
+  background: linear-gradient(135deg, #1c2b406b, #070b12);
+  box-shadow:
+    6px 6px 14px #05070e,
+    -3px -3px 10px #ffffff08;
+  border: 1 solid white;
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  .header__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header__actions button {
+    width: 100%;
+    max-width: 22rem;
+  }
+  .header__actions button:first-child:hover {
+    box-shadow: none;
+  }
+  .header__actions button:hover {
+    transform: none !important;
+  }
+  .header__actions button:active {
+    transform: scale(0.99) !important;
+  }
+}
