@@ -1,3 +1,4 @@
+import ClientsComponent from './components/ClientsComponent/ClientsComponent.jsx';
 import HeaderComponent from './components/HeaderComponent/HeaderComponen';
 import ServicesSection from './components/ServicesComponent/ServicesSection';
 
@@ -7,7 +8,10 @@ function App() {
   return (
     <>
       <HeaderComponent />
-      <ServicesSection />
+      <div className="services-clients-transition">
+        <ServicesSection />
+        <ClientsComponent />
+      </div>
     </>
   );
 }
