@@ -1,0 +1,51 @@
+export const ROADMAP_STAGES = [
+  {
+    id: 'contacto',
+    index: '01',
+    phase: 'Entender',
+    name: 'Contacto',
+    description: 'Nos cuentas qué necesitas y en qué punto estás.',
+  },
+  {
+    id: 'reunion',
+    index: '02',
+    phase: 'Entender',
+    name: 'Reunión',
+    description: 'Escuchamos tu contexto, tus objetivos y dificultades.',
+  },
+  {
+    id: 'analisis',
+    index: '03',
+    phase: 'Definir',
+    name: 'Análisis',
+    description: 'Revisamos necesidades, alternativas y condiciones.',
+  },
+  {
+    id: 'propuesta',
+    index: '04',
+    phase: 'Definir',
+    name: 'Propuesta',
+    description: 'Acordamos alcance, entregables, tiempos y costos.',
+  },
+  {
+    id: 'desarrollo',
+    index: '05',
+    phase: 'Construir',
+    name: 'Desarrollo',
+    description: 'Construimos compartiendo avances y decisiones.',
+  },
+  {
+    id: 'entrega',
+    index: '06',
+    phase: 'Construir',
+    name: 'Entrega',
+    description: 'Revisamos lo construido y acompañamos su uso.',
+  },
+  {
+    id: 'acompanamiento',
+    index: '07',
+    phase: 'Evolucionar',
+    name: 'Acompañamiento',
+    description: 'Soporte y mejoras para lo que ya construimos.',
+  },
+];
