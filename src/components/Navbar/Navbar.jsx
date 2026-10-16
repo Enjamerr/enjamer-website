@@ -1,0 +1,173 @@
+import { useEffect, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { NAV_CTA, NAV_LINKS } from './navLinks.js';
+import './Navbar.css';
+
+function trackGlow(event) {
+  const link = event.currentTarget;
+  const rect = link.getBoundingClientRect();
+  link.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+  link.style.setProperty('--my', `${event.clientY - rect.top}px`);
+}
+
+function GlowLabel({ link }) {
+  return <span className="glow-label">{link.label}</span>;
+}
+
+function DesktopNav({ links }) {
+  return (
+    <nav className="desktop-nav" aria-label="Navegación principal">
+      {links.map((link) => {
+        return (
+          <NavLink
+            key={link.id}
+            className={({ isActive }) => {
+              if (isActive) {
+                return 'glow-link active';
+              }
+              return 'glow-link';
+            }}
+            style={{ '--glow': link.glow }}
+            to={link.to}
+            end={link.to === '/'}
+            onMouseMove={trackGlow}
+          >
+            <GlowLabel link={link} />
+          </NavLink>
+        );
+      })}
+    </nav>
+  );
+}
+
+function MobileMenu({ links, cta, open, onNavigate }) {
+  return (
+    <div className="mobile-menu" data-open={open} inert={!open}>
+      <Link className="drawer-brand" to="/" onClick={onNavigate} aria-label="Enjamer, inicio">
+        <img
+          className="brand__logo"
+          src="/brand/isotipo-oscuro.png"
+          alt=""
+          width="30"
+          height="30"
+        />
+        <span aria-hidden="true">ENJAMER</span>
+      </Link>
+      <nav aria-label="Navegación móvil">
+        {links.map((link) => {
+          return (
+            <NavLink
+              key={link.id}
+              className={({ isActive }) => {
+                if (isActive) {
+                  return 'active';
+                }
+                return '';
+              }}
+              to={link.to}
+              end={link.to === '/'}
+              onClick={onNavigate}
+            >
+              <TabIcon link={link} />
+              <span>{link.label}</span>
+            </NavLink>
+          );
+        })}
+        <Link className="btn primary mobile-cta" to={cta.to} onClick={onNavigate}>
+          {cta.label}
+        </Link>
+      </nav>
+    </div>
+  );
+}
+
+function TabIcon({ link }) {
+  return (
+    <svg
+      className="drawer-item__icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d={link.icon} />
+    </svg>
+  );
+}
+
+function Navbar({ links = NAV_LINKS, cta = NAV_CTA, brandTo = '/' }) {
+  const [open, setOpen] = useState(false);
+
+  const close = () => {
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    if (!open) {
+      return undefined;
+    }
+    const onKey = (event) => {
+      if (event.key === 'Escape') {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  return (
+    <>
+      <a className="skip" href="#contenido">
+        Saltar al contenido
+      </a>
+      <header className="site-header">
+        <div className="header-inner">
+          <Link className="brand" to={brandTo} aria-label="Enjamer, inicio">
+            <span aria-hidden="true">ENJ</span>
+            <img
+              className="brand__logo"
+              src="/brand/isotipo-oscuro.png"
+              alt=""
+              width="34"
+              height="34"
+            />
+            <span aria-hidden="true">MER</span>
+            <span className="brand__sr">Enjamer</span>
+          </Link>
+          <DesktopNav links={links} />
+          <Link className="btn primary header-cta" to={cta.to}>
+            {cta.label}
+          </Link>
+          <button
+            type="button"
+            className="mobile-toggle"
+            aria-expanded={open}
+            aria-controls="navbar-menu"
+            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+            onClick={() => {
+              setOpen((value) => !value);
+            }}
+          >
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </button>
+        </div>
+      </header>
+
+      <div id="navbar-menu">
+        <MobileMenu links={links} cta={cta} open={open} onNavigate={close} />
+      </div>
+      {open ? (
+        <button type="button" className="menu-scrim" aria-label="Cerrar menú" onClick={close} />
+      ) : null}
+    </>
+  );
+}
+
+export default Navbar;
