@@ -1,15 +1,36 @@
-/**
- * Configuración centralizada de enlaces de navegación.
- * Basada en el prototipo (prototype.enjamer.com), sin "Proyectos".
- * Se reutiliza en la barra de escritorio, el menú móvil y las
- * pestañas inferiores para evitar duplicación de código.
- */
+import { LuCircleHelp, LuClipboardCheck, LuHouse, LuLayoutGrid, LuUsers } from 'react-icons/lu';
+
 export const NAV_LINKS = [
-  { id: 'inicio', label: 'Inicio', to: '/' },
-  { id: 'servicios', label: 'Servicios', to: '/servicios' },
-  { id: 'como-trabajamos', label: 'Cómo trabajamos', to: '/como-trabajamos' },
-  { id: 'nosotros', label: 'Nosotros', to: '/nosotros' },
-  { id: 'faq', label: 'FAQ', to: '/preguntas-frecuentes' },
+  {
+    id: 'inicio',
+    label: 'Inicio',
+    to: '/',
+    icon: LuHouse,
+  },
+  {
+    id: 'servicios',
+    label: 'Servicios',
+    to: '/servicios',
+    icon: LuLayoutGrid,
+  },
+  {
+    id: 'como-trabajamos',
+    label: 'Cómo trabajamos',
+    to: '/como-trabajamos',
+    icon: LuClipboardCheck,
+  },
+  {
+    id: 'nosotros',
+    label: 'Nosotros',
+    to: '/nosotros',
+    icon: LuUsers,
+  },
+  {
+    id: 'faq',
+    label: 'FAQ',
+    to: '/preguntas-frecuentes',
+    icon: LuCircleHelp,
+  },
 ];
 
 export const NAV_CTA = {
@@ -17,5 +38,3 @@ export const NAV_CTA = {
   label: 'Cuéntanos qué necesitas',
   to: '/contacto',
 };
-
-export const NAV_PRIMARY_IDS = ['inicio', 'servicios', 'nosotros', 'faq'];
