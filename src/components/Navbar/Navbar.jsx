@@ -1,7 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { NAV_CTA, NAV_LINKS, NAV_PRIMARY_IDS } from './navLinks.js';
+import { NAV_CTA, NAV_LINKS } from './navLinks.js';
 import './Navbar.css';
+
+function trackGlow(event) {
+  const link = event.currentTarget;
+  const rect = link.getBoundingClientRect();
+  link.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+  link.style.setProperty('--my', `${event.clientY - rect.top}px`);
+}
+
+function GlowLabel({ link }) {
+  return <span className="glow-label">{link.label}</span>;
+}
 
 function DesktopNav({ links }) {
   return (
@@ -12,14 +23,16 @@ function DesktopNav({ links }) {
             key={link.id}
             className={({ isActive }) => {
               if (isActive) {
-                return 'active';
+                return 'glow-link active';
               }
-              return '';
+              return 'glow-link';
             }}
+            style={{ '--glow': link.glow }}
             to={link.to}
             end={link.to === '/'}
+            onMouseMove={trackGlow}
           >
-            {link.label}
+            <GlowLabel link={link} />
           </NavLink>
         );
       })}
@@ -30,6 +43,16 @@ function DesktopNav({ links }) {
 function MobileMenu({ links, cta, open, onNavigate }) {
   return (
     <div className="mobile-menu" data-open={open} inert={!open}>
+      <Link className="drawer-brand" to="/" onClick={onNavigate} aria-label="Enjamer, inicio">
+        <img
+          className="brand__logo"
+          src="/brand/isotipo-oscuro.png"
+          alt=""
+          width="30"
+          height="30"
+        />
+        <span aria-hidden="true">ENJAMER</span>
+      </Link>
       <nav aria-label="Navegación móvil">
         {links.map((link) => {
           return (
@@ -45,7 +68,8 @@ function MobileMenu({ links, cta, open, onNavigate }) {
               end={link.to === '/'}
               onClick={onNavigate}
             >
-              {link.label}
+              <TabIcon link={link} />
+              <span>{link.label}</span>
             </NavLink>
           );
         })}
@@ -57,28 +81,20 @@ function MobileMenu({ links, cta, open, onNavigate }) {
   );
 }
 
-function BottomTabs({ links }) {
-  const primary = links.filter((link) => NAV_PRIMARY_IDS.includes(link.id));
+function TabIcon({ link }) {
   return (
-    <nav className="bottom-tabs" aria-label="Navegación principal móvil">
-      {primary.map((link) => {
-        return (
-          <NavLink
-            key={link.id}
-            className={({ isActive }) => {
-              if (isActive) {
-                return 'bottom-tab active';
-              }
-              return 'bottom-tab';
-            }}
-            to={link.to}
-            end={link.to === '/'}
-          >
-            {link.label}
-          </NavLink>
-        );
-      })}
-    </nav>
+    <svg
+      className="drawer-item__icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d={link.icon} />
+    </svg>
   );
 }
 
@@ -150,8 +166,6 @@ function Navbar({ links = NAV_LINKS, cta = NAV_CTA, brandTo = '/' }) {
       {open ? (
         <button type="button" className="menu-scrim" aria-label="Cerrar menú" onClick={close} />
       ) : null}
-
-      <BottomTabs links={links} />
     </>
   );
 }

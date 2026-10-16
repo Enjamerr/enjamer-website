@@ -8,8 +8,8 @@ import './App.css';
 function App() {
   return (
     <>
-      <HeaderComponent />
       <Navbar />
+      <HeaderComponent />
       <main id="contenido">
         <Routes>
           <Route path="/" element={<Home />} />
