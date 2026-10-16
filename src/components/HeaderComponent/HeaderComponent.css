@@ -6,7 +6,7 @@
   min-height: 100svh;
   padding: clamp(4rem, 10vw, 7rem) clamp(1.25rem, 5vw, 4rem);
   overflow: hidden;
-  background: #111820;
+  background: #080d14;
   color: #fff;
   text-align: center;
   z-index: 0;
@@ -19,6 +19,8 @@
   object-fit: cover;
   object-position: center;
   z-index: -2;
+  -webkit-mask-image: linear-gradient(180deg, #000 46%, transparent 99%);
+  mask-image: linear-gradient(180deg, #000 46%, transparent 99%);
 }
 .header__video {
   visibility: hidden;
@@ -41,6 +43,24 @@
 }
 .header[data-phase='ready']::after {
   opacity: 1;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(280px, 48vh, 540px);
+  background: linear-gradient(
+    180deg,
+    rgb(8 13 20 / 0) 0%,
+    rgb(8 13 20 / 25%) 25%,
+    rgb(8 13 20 / 55%) 50%,
+    rgb(8 13 20 / 85%) 78%,
+    #080d14 100%
+  );
+  z-index: -1;
+  pointer-events: none;
 }
 .header__content {
   width: 100%;
