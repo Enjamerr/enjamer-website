@@ -47,9 +47,7 @@ function Footer() {
             </svg>
             <span className="footer-wordmark">ENJAMER</span>
           </a>
-          <p className="footer-slogan">
-            Tecnología construida en comunidad.
-          </p>
+          <p className="footer-slogan">Tecnología construida en comunidad.</p>
         </div>
 
         <nav className="footer-nav" aria-label="Navegación del footer">
@@ -104,9 +102,7 @@ function Footer() {
                 </a>
               </li>
               <li className="footer-whatsapp-placeholder">
-                <span className="footer-link-disabled">
-                  WhatsApp (próximamente)
-                </span>
+                <span className="footer-link-disabled">WhatsApp (próximamente)</span>
               </li>
             </ul>
             <div className="footer-social">
@@ -151,9 +147,7 @@ function Footer() {
         </nav>
 
         <div className="footer-bottom">
-          <p className="footer-copyright">
-            © 2026 Enjamer. Tecnología construida en comunidad.
-          </p>
+          <p className="footer-copyright">© 2026 Enjamer. Tecnología construida en comunidad.</p>
         </div>
       </div>
     </footer>

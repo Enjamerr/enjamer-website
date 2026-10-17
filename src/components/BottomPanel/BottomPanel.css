@@ -4,7 +4,9 @@
   border: 1px solid #ffffff1c;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  box-shadow: 0 12px 36px #0003, inset 0 1px #ffffff0d;
+  box-shadow:
+    0 12px 36px #0003,
+    inset 0 1px #ffffff0d;
   border-radius: 14px;
   color: #fff;
   padding: clamp(3rem, 8vw, 5rem) clamp(1.25rem, 5vw, 4rem);
@@ -33,16 +35,23 @@
   border-radius: 8px;
   border: 1px solid #ffffff20;
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
   color: #fff;
   background: linear-gradient(115deg, #520fb8, #4f46e5);
   border-color: #ffffff29;
-  box-shadow: 5px 5px 14px #05070e, -2px -2px 8px #9b70ff15;
+  box-shadow:
+    5px 5px 14px #05070e,
+    -2px -2px 8px #9b70ff15;
   margin-top: 1.5rem;
 }
 
 .bottom-panel-btn:hover {
-  box-shadow: 5px 5px 14px #05070e, 0 8px 30px #520fb850;
+  box-shadow:
+    5px 5px 14px #05070e,
+    0 8px 30px #520fb850;
   transform: translateY(-3px);
 }
 
