@@ -1,7 +1,7 @@
 import { Code, Compass, Layers, Users, Wrench } from 'lucide-react';
 
 import TextContent from '../common/TextContent/TextContent';
-import ServicesCard from '../ServicesCard/ServicesCard';
+import ServicesCard from './ServicesCard/ServicesCard';
 import useServicesReveal from './hooks/useServicesReveal';
 import './ServicesSection.css';
 
@@ -94,6 +94,7 @@ export default function ServicesSection() {
               key={service.id}
               {...service}
               buttonLabel="Conoce el servicio"
+              /* Configure the routes correctly */
               href={`/servicios#tab-${service.id}`}
             />
           ))}

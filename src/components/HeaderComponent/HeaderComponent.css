@@ -77,6 +77,8 @@
   margin-top: 2.5rem;
 }
 .header__actions button {
+  -webkit-user-select: none;
+  user-select: none;
   cursor: pointer;
   border: 1px solid #ffffff20;
   border-radius: 8px;

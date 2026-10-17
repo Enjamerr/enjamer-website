@@ -94,6 +94,9 @@
   max-width: 52ch;
 }
 .services-card__button--glass {
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
   margin-top: auto;
   align-self: flex-start;
   display: inline-flex;
@@ -125,21 +128,8 @@
   transition: transform 450ms var(--services-ease);
 }
 .services-card__button--glass:focus-visible {
-  outline: 2px solid var(--card-accent);
-  outline-offset: 4px;
-}
-.services-card:active {
-  transform: scale(0.985);
   border-color: var(--card-accent-line);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 14%),
-    0 0 44px var(--card-accent-glow);
-}
-.services-card:focus-within {
-  border-color: var(--card-accent-line);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 14%),
-    0 0 44px var(--card-accent-glow);
+  box-shadow: 0 0 18px var(--card-accent-glow);
 }
 .services-card__media {
   min-width: 0;
@@ -288,6 +278,19 @@
     0 0 22px rgb(82 15 184 / 45%);
 }
 @media (hover: hover) and (pointer: fine) {
+  .services-card:active {
+    transform: scale(0.985);
+    border-color: var(--card-accent-line);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 14%),
+      0 0 44px var(--card-accent-glow);
+  }
+  .services-card:focus-within {
+    border-color: var(--card-accent-line);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 14%),
+      0 0 44px var(--card-accent-glow);
+  }
   .services-card:hover {
     transform: translateY(-6px);
     border-color: var(--card-accent-line);

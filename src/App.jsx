@@ -1,5 +1,5 @@
 import HeaderComponent from './components/HeaderComponent/HeaderComponen';
-import ServicesSection from './components/Services/ServicesSection';
+import ServicesSection from './components/ServicesComponent/ServicesSection';
 
 import './App.css';
 
