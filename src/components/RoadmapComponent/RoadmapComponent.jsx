@@ -1,5 +1,5 @@
 import ButtonComponent from '../common/ButtonComponent/ButtonComponent';
-import TextContent from '../common/TextContentComponent/TextContentComponent.jsx';
+import TextContentComponent from '../common/TextContentComponent/TextContentComponent.jsx';
 import useRoadmapReveal from './hooks/useRoadmapReveal';
 import { ROADMAP_STAGES } from './utils/roadmapStages.js';
 import './RoadmapComponent.css';
@@ -12,7 +12,7 @@ function Roadmap({ stages = ROADMAP_STAGES }) {
       <div className="roadmap__fade" aria-hidden="true" />
       <div className="roadmap__pin">
         <div className="roadmap__inner">
-          <TextContent
+          <TextContentComponent
             upperText="Nuestra forma de trabajar"
             mainText="Con claridad, paso a paso hasta el progreso"
             htmlTag="h2"
