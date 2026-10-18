@@ -1,6 +1,6 @@
 import ClientsComponent from './components/ClientsComponent/ClientsComponent.jsx';
 import HeaderComponent from './components/HeaderComponent/HeaderComponent';
-import Navbar from './components/Navbar/index.js';
+import Navbar from './components/NavbarComponent/Navbar.jsx';
 import ServicesSection from './components/ServicesComponent/ServicesSection';
 
 import './App.css';
@@ -14,7 +14,6 @@ function App() {
         <ServicesSection />
         <ClientsComponent />
       </div>
-      <main id="contenido" />
     </>
   );
 }

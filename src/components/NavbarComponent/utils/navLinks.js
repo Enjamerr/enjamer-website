@@ -1,35 +1,35 @@
-import { LuCircleHelp, LuClipboardCheck, LuHouse, LuLayoutGrid, LuUsers } from 'react-icons/lu';
+import { CircleHelp, ClipboardCheck, House, LayoutGrid, Users } from 'lucide-react';
 
 export const NAV_LINKS = [
   {
     id: 'inicio',
     label: 'Inicio',
     to: '/',
-    icon: LuHouse,
+    icon: House,
   },
   {
     id: 'servicios',
     label: 'Servicios',
     to: '/servicios',
-    icon: LuLayoutGrid,
+    icon: LayoutGrid,
   },
   {
     id: 'como-trabajamos',
     label: 'Cómo trabajamos',
     to: '/como-trabajamos',
-    icon: LuClipboardCheck,
+    icon: ClipboardCheck,
   },
   {
     id: 'nosotros',
     label: 'Nosotros',
     to: '/nosotros',
-    icon: LuUsers,
+    icon: Users,
   },
   {
     id: 'faq',
     label: 'FAQ',
     to: '/preguntas-frecuentes',
-    icon: LuCircleHelp,
+    icon: CircleHelp,
   },
 ];
 

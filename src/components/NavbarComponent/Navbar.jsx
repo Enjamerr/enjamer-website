@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { NAV_CTA, NAV_LINKS } from './navLinks.js';
+import { Menu, X } from 'lucide-react';
+import { NAV_CTA, NAV_LINKS } from './utils/navLinks.js';
 import './Navbar.css';
 
 function trackGlow(event) {
@@ -43,16 +44,7 @@ function MobileMenu({ links, cta, open, onNavigate }) {
   return (
     <div className="mobile-menu" data-open={open} inert={!open}>
       <div className="brand drawer-brand">
-        <span aria-hidden="true">ENJ</span>
-        <img
-          className="brand__logo"
-          src="/brand/isotipo-oscuro.png"
-          alt=""
-          width="30"
-          height="30"
-        />
-        <span aria-hidden="true">MER</span>
-        <span className="brand__sr">Enjamer</span>
+        <img className="brand__imagotipo" src="/imagotipo.svg" alt="Enjamer" />
       </div>
       <nav aria-label="Navegación móvil">
         {links.map((link) => {
@@ -111,22 +103,10 @@ function Navbar({ links = NAV_LINKS, cta = NAV_CTA, brandTo = '/' }) {
 
   return (
     <>
-      <a className="skip" href="#contenido">
-        Saltar al contenido
-      </a>
       <header className="site-header">
         <div className="header-inner">
           <Link className="brand" to={brandTo} aria-label="Enjamer, inicio">
-            <span aria-hidden="true">ENJ</span>
-            <img
-              className="brand__logo"
-              src="/brand/isotipo-oscuro.png"
-              alt=""
-              width="34"
-              height="34"
-            />
-            <span aria-hidden="true">MER</span>
-            <span className="brand__sr">Enjamer</span>
+            <img className="brand__imagotipo" src="/imagotipo.svg" alt="" />
           </Link>
           <DesktopNav links={links} />
           <Link className="btn primary header-cta" to={cta.to}>
@@ -142,9 +122,7 @@ function Navbar({ links = NAV_LINKS, cta = NAV_CTA, brandTo = '/' }) {
               setOpen((value) => !value);
             }}
           >
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
+            {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
           </button>
         </div>
       </header>
