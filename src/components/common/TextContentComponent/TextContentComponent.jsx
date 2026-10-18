@@ -1,4 +1,4 @@
-import './TextContent.css';
+import './TextContentComponent.css';
 
 const tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'];
 const fontClasses = {
@@ -9,7 +9,7 @@ const fontClasses = {
   Euphoria: 'text-content__main--euphoria',
 };
 
-export default function TextContent({
+export default function TextContentComponent({
   upperText,
   mainText,
   htmlTag = 'h2',

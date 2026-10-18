@@ -1,0 +1,66 @@
+.common-button {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  border: 1px solid #ffffff20;
+  border-radius: 8px;
+  color: #fff;
+  background: linear-gradient(115deg, #520fb8, #4f46e5);
+  outline: none !important;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 13px 23px;
+  line-height: 1.4;
+  transition:
+    translate 0.2s,
+    scale 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+  display: inline-flex;
+  box-shadow:
+    5px 5px 14px #05070e,
+    -2px -2px 8px #9b70ff15;
+  font:
+    600 0.875rem / 1.4 Inter,
+    sans-serif;
+}
+
+.common-button:hover {
+  box-shadow: 0 8px 30px #520fb850;
+  translate: 0 -3px !important;
+}
+.common-button:active {
+  scale: 0.99 !important;
+}
+.common-button:focus-visible {
+  outline: 2px solid #7c3cfc;
+  outline-offset: 3px;
+}
+
+.common-button-transparent {
+  background: linear-gradient(135deg, #1c2b406b, #070b12);
+  box-shadow:
+    6px 6px 14px #05070e,
+    -3px -3px 10px #ffffff08 !important;
+}
+
+.common-button-transparent:hover {
+  box-shadow: 0 8px 30px #520fb850;
+}
+
+@media (max-width: 767px) {
+  .common-button {
+    width: 100%;
+    max-width: 22rem;
+  }
+
+  .common-button:hover {
+    translate: none;
+    box-shadow: none;
+  }
+}

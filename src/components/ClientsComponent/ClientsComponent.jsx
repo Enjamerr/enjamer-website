@@ -1,34 +1,8 @@
-import { Blocks, Lightbulb, SlidersHorizontal, Users } from 'lucide-react';
-import TextContent from '../common/TextContent/TextContent.jsx';
+import ButtonComponent from '../common/ButtonComponent/ButtonComponent';
+import TextContentComponent from '../common/TextContentComponent/TextContentComponent.jsx';
 import useClientsReveal from './hooks/useClientsReveal';
+import { CLIENTS } from './utils/clients.js';
 import './ClientsComponent.css';
-
-const CLIENTS = [
-  {
-    id: 'idea',
-    title: 'Personas con una idea',
-    description: 'Orientación para convertir una necesidad en un camino posible.',
-    Icon: Lightbulb,
-  },
-  {
-    id: 'startups',
-    title: 'Startups y organizaciones',
-    description: 'Soluciones para tú procesos y su crecimiento como equipo o independiente',
-    Icon: Blocks,
-  },
-  {
-    id: 'equipos',
-    title: 'Equipos tecnológicos',
-    description: 'Capacidades que se suman al conocimiento de tu equipo.',
-    Icon: Users,
-  },
-  {
-    id: 'evolucion',
-    title: 'Productos en evolución',
-    description: 'Soporte y mejoras para lo que ya has construido.',
-    Icon: SlidersHorizontal,
-  },
-];
 
 function ClientsComponent() {
   const { sectionRef } = useClientsReveal();
@@ -54,7 +28,7 @@ function ClientsComponent() {
             })}
           </div>
           <div className="clients-text">
-            <TextContent
+            <TextContentComponent
               upperText="Un lugar para tu idea"
               mainText="¿Y tú qué clase de cliente eres?"
               htmlTag="h2"
@@ -62,9 +36,7 @@ function ClientsComponent() {
               supportingParagraph="Un gran emprendedor sabe que las grandes ideas comienzan con una chispa."
               paragraphPosition="bottom"
             />
-            <a className="clients-cta" href="/nosotros">
-              Construyamos juntos lo que viene
-            </a>
+            <ButtonComponent text="Construyamos juntos lo que viene" to="/nosotros" />
           </div>
         </div>
       </div>
