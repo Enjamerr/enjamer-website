@@ -141,46 +141,6 @@ body:has(.header:not([data-phase='ready'])) .site-header {
   outline-offset: 2px;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  min-height: 52px;
-  padding: 13px 23px;
-  box-sizing: border-box;
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.4;
-  user-select: none;
-  cursor: pointer;
-  border-radius: 8px;
-  border: 1px solid #ffffff20;
-  text-decoration: none;
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s,
-    background 0.2s;
-}
-
-.btn.primary {
-  color: #fff;
-  background: linear-gradient(115deg, #520fb8, #4f46e5);
-  box-shadow:
-    5px 5px 14px #05070e,
-    -2px -2px 8px #9b70ff15;
-}
-
-.btn.primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px #520fb850;
-}
-
-.btn.primary:active {
-  transform: scale(0.99);
-}
-
 .mobile-toggle {
   display: none;
   justify-content: center;
@@ -215,7 +175,7 @@ body:has(.header:not([data-phase='ready'])) .site-header {
 
 @media (width <= 1024px) {
   .desktop-nav,
-  .header-cta {
+  .header-inner .common-button {
     display: none;
   }
 
@@ -267,7 +227,7 @@ body:has(.header:not([data-phase='ready'])) .site-header {
     margin-top: 18px;
   }
 
-  .mobile-menu nav a:not(.btn) {
+  .mobile-menu nav a:not(.common-button) {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -281,13 +241,13 @@ body:has(.header:not([data-phase='ready'])) .site-header {
     text-decoration: none;
   }
 
-  .mobile-menu nav a:not(.btn) svg {
+  .mobile-menu nav a:not(.common-button) svg {
     width: 19px;
     height: 19px;
     flex: 0 0 auto;
   }
 
-  .mobile-menu nav a:not(.btn):hover {
+  .mobile-menu nav a:not(.common-button):hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.16);
   }
@@ -302,10 +262,9 @@ body:has(.header:not([data-phase='ready'])) .site-header {
     outline-offset: 2px;
   }
 
-  .mobile-cta {
+  .mobile-menu nav .common-button {
     margin-top: 14px;
     width: 100%;
-    box-sizing: border-box;
   }
 
   .menu-scrim {

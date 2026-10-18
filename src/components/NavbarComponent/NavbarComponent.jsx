@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import ButtonComponent from '../common/ButtonComponent/ButtonComponent';
 import { NAV_CTA, NAV_LINKS } from './utils/navLinks.js';
-import './Navbar.css';
+import './NavbarComponent.css';
 
 function trackGlow(event) {
   const link = event.currentTarget;
@@ -66,9 +67,7 @@ function MobileMenu({ links, cta, open, onNavigate }) {
             </NavLink>
           );
         })}
-        <Link className="btn primary mobile-cta" to={cta.to} onClick={onNavigate}>
-          {cta.label}
-        </Link>
+        <ButtonComponent text={cta.label} to={cta.to} onClick={onNavigate} />
       </nav>
     </div>
   );
@@ -95,8 +94,11 @@ function Navbar({ links = NAV_LINKS, cta = NAV_CTA, brandTo = '/' }) {
         setOpen(false);
       }
     };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     document.addEventListener('keydown', onKey);
     return () => {
+      document.body.style.overflow = previousOverflow;
       document.removeEventListener('keydown', onKey);
     };
   }, [open]);
@@ -109,9 +111,7 @@ function Navbar({ links = NAV_LINKS, cta = NAV_CTA, brandTo = '/' }) {
             <img className="brand__imagotipo" src="/imagotipo.svg" alt="" />
           </Link>
           <DesktopNav links={links} />
-          <Link className="btn primary header-cta" to={cta.to}>
-            {cta.label}
-          </Link>
+          <ButtonComponent text={cta.label} to={cta.to} />
           <button
             type="button"
             className="mobile-toggle"
@@ -122,7 +122,7 @@ function Navbar({ links = NAV_LINKS, cta = NAV_CTA, brandTo = '/' }) {
               setOpen((value) => !value);
             }}
           >
-            {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+            <Menu aria-hidden="true" />
           </button>
         </div>
       </header>
