@@ -1,6 +1,7 @@
 import ClientsComponent from './components/ClientsComponent/ClientsComponent.jsx';
 import HeaderComponent from './components/HeaderComponent/HeaderComponent';
 import Navbar from './components/NavbarComponent/NavbarComponent.jsx';
+import Roadmap from './components/RoadmapComponent/RoadmapComponent.jsx';
 import ServicesSection from './components/ServicesComponent/ServicesSection';
 
 import './App.css';
@@ -14,6 +15,7 @@ function App() {
         <ServicesSection />
         <ClientsComponent />
       </div>
+      <Roadmap />
     </>
   );
 }
