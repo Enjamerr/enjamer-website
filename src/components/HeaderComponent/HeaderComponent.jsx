@@ -1,6 +1,7 @@
 import useHeaderAnimation from './hooks/useHeaderAnimation';
 
-import TextContent from '../common/TextContent/TextContent';
+import ButtonComponent from '../common/ButtonComponent/ButtonComponent';
+import TextContentComponent from '../common/TextContentComponent/TextContentComponent';
 import heroImage from '../../assets/hero-image.jpg';
 
 import './HeaderComponent.css';
@@ -27,7 +28,7 @@ export default function HeaderComponent() {
         aria-hidden="true"
       />
       <div className="header__content">
-        <TextContent
+        <TextContentComponent
           upperText="Un aliado para tu próxima idea"
           mainText="Tecnología construida en comunidad"
           htmlTag="h1"
@@ -37,12 +38,13 @@ export default function HeaderComponent() {
           paragraphPosition="bottom"
         />
         <div className="header__actions">
-          <button type="button" data-hero-animate>
-            Cuéntanos qué necesitas
-          </button>
-          <button type="button" className="header__secondary" data-hero-animate>
-            Explora nuestros servicios
-          </button>
+          <ButtonComponent text="Cuéntanos qué necesitas" to="/nosotros" data-hero-animate />
+          <ButtonComponent
+            text="Explora nuestros servicios"
+            to="/servicios"
+            transparent
+            data-hero-animate
+          />
         </div>
       </div>
     </header>

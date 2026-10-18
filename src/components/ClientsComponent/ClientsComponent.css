@@ -64,6 +64,10 @@
   text-align: left;
 }
 
+.clients-text > .text-content {
+  margin-bottom: 28px;
+}
+
 .clients-text .text-content--bottom {
   align-items: flex-start;
 }
@@ -75,49 +79,6 @@
 .clients-text .text-content__paragraph {
   color: #111827;
   margin-top: 20px;
-}
-
-.clients-cta {
-  margin-top: 28px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  min-height: 52px;
-  padding: 13px 23px;
-  box-sizing: border-box;
-  border-radius: 8px;
-  border: 1px solid #ffffff20;
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.4;
-  color: #fff;
-  text-decoration: none;
-  outline: none;
-  cursor: pointer;
-  background: linear-gradient(115deg, #520fb8, #4f46e5);
-  box-shadow:
-    5px 5px 14px #05070e,
-    -2px -2px 8px #9b70ff15;
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s,
-    background 0.2s;
-}
-
-.clients-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px #520fb850;
-}
-
-.clients-cta:active {
-  transform: scale(0.99);
-}
-
-.clients-cta:focus-visible {
-  outline: 2px solid #7c3cfc;
-  outline-offset: 3px;
 }
 
 .client-card {
@@ -191,9 +152,5 @@
     order: 2;
     width: min(560px, 100%);
     margin: 0 auto;
-  }
-
-  .clients-cta {
-    align-self: center;
   }
 }

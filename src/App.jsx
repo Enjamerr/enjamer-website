@@ -1,5 +1,5 @@
 import ClientsComponent from './components/ClientsComponent/ClientsComponent.jsx';
-import HeaderComponent from './components/HeaderComponent/HeaderComponen';
+import HeaderComponent from './components/HeaderComponent/HeaderComponent';
 import ServicesSection from './components/ServicesComponent/ServicesSection';
 
 import './App.css';

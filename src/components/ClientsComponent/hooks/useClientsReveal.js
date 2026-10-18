@@ -31,7 +31,7 @@ export default function useClientsReveal() {
         const textDistance = conditions.desktop ? 64 : 28;
         const cards = section.querySelectorAll('.client-card');
         const text = section.querySelectorAll(
-          '.clients-text .text-content__upper, .clients-text .text-content__main, .clients-text .text-content__paragraph, .clients-cta',
+          '.clients-text .text-content__upper, .clients-text .text-content__main, .clients-text .text-content__paragraph, .clients-text .common-button',
         );
 
         const reveal = (element, offset) => {
@@ -59,9 +59,10 @@ export default function useClientsReveal() {
 
         const showFocused = (event) => {
           text.forEach((element, index) => {
-            if (element.contains(event.target)) {
-              textTweens[index].scrollTrigger.kill();
-              textTweens[index].progress(1);
+            if (element.contains(event.target) && event.target.matches(':focus-visible')) {
+              const tween = textTweens[index];
+              tween.scrollTrigger?.getTween()?.pause();
+              tween.progress(1);
             }
           });
         };

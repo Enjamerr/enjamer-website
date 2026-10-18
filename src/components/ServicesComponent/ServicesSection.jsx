@@ -1,6 +1,6 @@
 import { Code, Compass, Layers, Users, Wrench } from 'lucide-react';
 
-import TextContent from '../common/TextContent/TextContent';
+import TextContentComponent from '../common/TextContentComponent/TextContentComponent';
 import ServicesCard from './ServicesCard/ServicesCard';
 import useServicesReveal from './hooks/useServicesReveal';
 import './ServicesSection.css';
@@ -79,7 +79,7 @@ export default function ServicesSection() {
       ref={sectionRef}
     >
       <div className="services__inner">
-        <TextContent
+        <TextContentComponent
           upperText="Lo que podemos construir"
           mainText="Tu necesidad. Nuestro punto de partida"
           htmlTag="h2"
