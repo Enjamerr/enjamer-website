@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import TextContent from '../common/TextContent/TextContent';
 import useRoadmapReveal from './hooks/useRoadmapReveal';
-import { ROADMAP_STAGES } from './roadmapStages.js';
+import { ROADMAP_STAGES } from './utils/roadmapStages.js';
 import './Roadmap.css';
 
 function Roadmap({ stages = ROADMAP_STAGES }) {
