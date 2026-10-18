@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
-import TextContent from '../common/TextContent/TextContent';
+import ButtonComponent from '../common/ButtonComponent/ButtonComponent';
+import TextContent from '../common/TextContentComponent/TextContentComponent.jsx';
 import useRoadmapReveal from './hooks/useRoadmapReveal';
 import { ROADMAP_STAGES } from './utils/roadmapStages.js';
-import './Roadmap.css';
+import './RoadmapComponent.css';
 
 function Roadmap({ stages = ROADMAP_STAGES }) {
   const { sectionRef } = useRoadmapReveal();
@@ -42,9 +42,7 @@ function Roadmap({ stages = ROADMAP_STAGES }) {
           </ol>
         </div>
         <div className="roadmap__inner roadmap__foot">
-          <Link className="roadmap__cta" to="/como-trabajamos">
-            Explorar las siete etapas
-          </Link>
+          <ButtonComponent text="Explorar las siete etapas" to="/como-trabajamos" />
         </div>
       </div>
     </section>
