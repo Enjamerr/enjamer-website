@@ -98,6 +98,15 @@
   color: #520fb8;
 }
 
+.footer-link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
 .footer-link-disabled {
   color: #9ca3af;
   text-decoration: none;
