@@ -108,7 +108,7 @@ function Navbar({ links = NAV_LINKS, cta = NAV_CTA, brandTo = '/' }) {
       <header className="site-header">
         <div className="header-inner">
           <Link className="brand" to={brandTo} aria-label="Enjamer, inicio">
-            <img className="brand__imagotipo" src="/imagotipo.svg" alt="" />
+            <img className="brand__imagotipo" src="/imagotipoClaro.svg" alt="enjamer" />
           </Link>
           <DesktopNav links={links} />
           <ButtonComponent text={cta.label} to={cta.to} />

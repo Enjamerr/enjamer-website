@@ -1,3 +1,5 @@
+import './InfoBlock.css';
+
 export default function InfoBlock({ title, description }) {
   return (
     <div className="info-block">

@@ -1,15 +1,15 @@
 import TextContentComponent from '../common/TextContentComponent/TextContentComponent.jsx';
-import InfoBlock from './InfoBlock';
-import BottomPanel from '../common/BottomPanel/BottomPanel.jsx';
-import './HowWeWork.css';
+import InfoBlock from './utils/InfoBlock.jsx';
+import BottonPanelComponent from '../common/BottonPanelComponent/BottonPanelComponent.jsx';
+import './HowWeWorkComponent.css';
 
-function HowWeWork() {
+function HowWeWorkComponent() {
   return (
     <section className="how-we-work" aria-label="Cómo trabajamos">
       <div className="how-we-work-inner">
         <TextContentComponent
           upperText="Lo que nos mueve"
-          mainText="Tan importante como construir, es el cómo lo hacemos."
+          mainText="Tan importante como construir, es el cómo lo hacemos"
           htmlTag="h2"
           fontFamily="Cinzel"
           paragraphPosition="bottom"
@@ -30,11 +30,11 @@ function HowWeWork() {
           />
         </div>
 
-        <BottomPanel
+        <BottonPanelComponent
           upperText="El siguiente paso lo damos juntos"
-          mainText="Las buenas soluciones empiezan con una conversación."
-          supportingParagraph="Cuéntanos tu idea, tu necesidad o ese proceso que quieres mejorar. Empecemos por entenderlo."
-          buttonText="Cuéntanos qué necesitas"
+          mainText="Las buenas soluciones empiezan con una conversación"
+          supportingParagraph="Cuéntanos tu idea, tu necesidad o ese proceso que quieres mejorar. Empecemos por tí."
+          buttonText="Tengamos una charla"
           buttonHref="/contacto"
         />
       </div>
@@ -42,4 +42,4 @@ function HowWeWork() {
   );
 }
 
-export default HowWeWork;
+export default HowWeWorkComponent;
