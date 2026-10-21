@@ -18,6 +18,10 @@ Use this template when closing a Pull Request to document its final state, the r
 
   [Provide a clear explanation of why the Pull Request is being closed, including relevant technical or project context.]
 
+  ## Acceptance Criteria
+
+  - [ ] The requirements that must be fully met in order for the identified problem to be resolved.
+
   ## Next Steps
 
   Describe any actions that must be taken after closing the Pull Request.
