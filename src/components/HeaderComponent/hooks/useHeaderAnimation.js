@@ -1,18 +1,21 @@
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useEffectEvent, useRef } from 'react';
 import { gsap } from 'gsap';
 import heroVideo from '../../../assets/hero-video.mp4';
+import { animateHeaderContent } from '../utils/animateHeaderContent.js';
 
-export default function useHeaderAnimation() {
+export default function useHeaderAnimation(entranceCompleted, finalFrame, onReveal) {
+  const notifyReveal = useEffectEvent(onReveal);
   const headerRef = useRef(null);
   const videoRef = useRef(null);
   const imageRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const header = headerRef.current;
     const video = videoRef.current;
     const image = imageRef.current;
+    const originalImageSource = image.src;
     const media = gsap.matchMedia();
-    let contentShown = false;
+    let contentShown = entranceCompleted.current;
     let videoAttempted = false;
     media.add(
       {
@@ -25,25 +28,20 @@ export default function useHeaderAnimation() {
         let revealed = false;
         let disposed = false;
         let watchdog;
-        header.dataset.phase = 'waiting';
+        let seekToEnd;
+        let revealFinalFrame;
+        header.dataset.phase = contentShown ? 'ready' : 'waiting';
         header.dataset.video = 'hidden';
         context.add('reveal', () => {
           if (revealed || disposed) {
             return;
           }
           revealed = true;
+          entranceCompleted.current = true;
           clearTimeout(watchdog);
           header.dataset.phase = 'ready';
-          const items = header.querySelectorAll('[data-hero-animate]');
-          if (reducedMotion || contentShown) {
-            gsap.set(items, { autoAlpha: 1, y: 0 });
-          } else {
-            gsap.fromTo(
-              items,
-              { autoAlpha: 0, y: 18 },
-              { autoAlpha: 1, y: 0, duration: 0.65, stagger: 0.18, ease: 'power2.out' },
-            );
-          }
+          notifyReveal();
+          animateHeaderContent(header, reducedMotion);
           contentShown = true;
         });
         const fallback = () => {
@@ -62,6 +60,19 @@ export default function useHeaderAnimation() {
           }
         };
         const ended = () => {
+          // Keep the decoded final frame across route unmounts, without replaying the video.
+          if (video.videoWidth && video.videoHeight) {
+            try {
+              const canvas = document.createElement('canvas');
+              canvas.width = video.videoWidth;
+              canvas.height = video.videoHeight;
+              canvas.getContext('2d').drawImage(video, 0, 0);
+              finalFrame.current = canvas.toDataURL('image/png');
+            } catch {
+              // Seeking the paused video remains the fallback when capture is unavailable.
+              finalFrame.current = null;
+            }
+          }
           context.reveal();
         };
         const playing = () => {
@@ -72,7 +83,44 @@ export default function useHeaderAnimation() {
         const imageReady = () => {
           context.reveal();
         };
-        if (desktop && !reducedMotion && !videoAttempted) {
+        revealFinalFrame = () => {
+          if (disposed) {
+            return;
+          }
+          clearTimeout(watchdog);
+          video.pause();
+          header.dataset.video = 'visible';
+        };
+        seekToEnd = () => {
+          if (disposed) {
+            return;
+          }
+          const end = Number.isFinite(video.duration) ? video.duration - 0.04 : 0;
+          if (end > 0) {
+            video.currentTime = end;
+          } else {
+            revealFinalFrame();
+          }
+        };
+        const restoreFinalFrame = () => {
+          video.addEventListener('loadedmetadata', seekToEnd);
+          video.addEventListener('seeked', revealFinalFrame);
+          video.addEventListener('error', fallback);
+          video.src = heroVideo;
+          video.load();
+          watchProgress();
+        };
+        if (contentShown) {
+          context.reveal();
+          if (desktop && !reducedMotion) {
+            if (finalFrame.current) {
+              image.src = finalFrame.current;
+              image.style.filter = 'blur(6px)';
+            } else {
+              restoreFinalFrame();
+            }
+          }
+        } else if (desktop && !reducedMotion && !videoAttempted) {
           videoAttempted = true;
           video.addEventListener('ended', ended);
           video.addEventListener('error', fallback);
@@ -95,18 +143,22 @@ export default function useHeaderAnimation() {
           video.removeEventListener('error', fallback);
           video.removeEventListener('playing', playing);
           video.removeEventListener('timeupdate', watchProgress);
+          video.removeEventListener('loadedmetadata', seekToEnd);
+          video.removeEventListener('seeked', revealFinalFrame);
           image.removeEventListener('load', imageReady);
           image.removeEventListener('error', imageReady);
           video.pause();
           video.removeAttribute('src');
           video.load();
+          image.src = originalImageSource;
+          image.style.filter = '';
           delete header.dataset.phase;
           delete header.dataset.video;
         };
       },
     );
     return () => media.revert();
-  }, []);
+  }, [entranceCompleted, finalFrame]);
 
   return { headerRef, videoRef, imageRef };
 }

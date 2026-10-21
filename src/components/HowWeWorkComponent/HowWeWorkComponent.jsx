@@ -1,5 +1,5 @@
 import TextContentComponent from '../common/TextContentComponent/TextContentComponent.jsx';
-import InfoBlock from './utils/InfoBlock.jsx';
+import InfoBlock from './components/InfoBlock.jsx';
 import BottonPanelComponent from '../common/BottonPanelComponent/BottonPanelComponent.jsx';
 import './HowWeWorkComponent.css';
 
