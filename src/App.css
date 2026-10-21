@@ -1,3 +1,4 @@
-.services-clients-transition {
-  overflow: clip;
+.app-shell {
+  min-width: 0;
+  min-height: 100svh;
 }

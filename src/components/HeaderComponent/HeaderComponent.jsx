@@ -1,4 +1,4 @@
-import useHeaderAnimation from './hooks/useHeaderAnimation';
+import useHeaderAnimation from './hooks/useHeaderAnimation.js';
 
 import ButtonComponent from '../common/ButtonComponent/ButtonComponent';
 import TextContentComponent from '../common/TextContentComponent/TextContentComponent';
@@ -6,8 +6,12 @@ import heroImage from '../../assets/hero-image.jpg';
 
 import './HeaderComponent.css';
 
-export default function HeaderComponent() {
-  const { headerRef, videoRef, imageRef } = useHeaderAnimation();
+export default function HeaderComponent({ entranceCompleted, finalFrame, onReveal }) {
+  const { headerRef, videoRef, imageRef } = useHeaderAnimation(
+    entranceCompleted,
+    finalFrame,
+    onReveal,
+  );
 
   return (
     <header className="header" ref={headerRef} aria-labelledby="hero-heading">
@@ -21,7 +25,6 @@ export default function HeaderComponent() {
       <video
         className="header__background header__video"
         ref={videoRef}
-        autoPlay
         muted
         playsInline
         preload="none"
@@ -29,6 +32,7 @@ export default function HeaderComponent() {
       />
       <div className="header__content">
         <TextContentComponent
+          animate
           upperText="Un aliado para tu próxima idea"
           mainText="Tecnología construida en comunidad"
           htmlTag="h1"

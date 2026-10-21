@@ -12,7 +12,7 @@ function BottonPanelComponent({
   return (
     <section className="bottom-panel" aria-label="Siguiente paso">
       <div className="bottom-panel-inner">
-        <main className="principal">
+        <div className="principal">
           <TextContentComponent
             upperText={upperText}
             mainText={mainText}
@@ -21,7 +21,7 @@ function BottonPanelComponent({
             supportingParagraph={supportingParagraph}
             paragraphPosition="bottom"
           />
-        </main>
+        </div>
         <div className="button_component">
           <ButtonComponent text={buttonText} to={buttonHref} />
         </div>

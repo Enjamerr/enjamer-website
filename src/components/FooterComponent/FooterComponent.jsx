@@ -23,7 +23,7 @@ function FooterComponent() {
               </li>
               <li>
                 <Link to="/como-trabajamos" className="footer-link">
-                  Cómo trabajamos
+                  ¿Cómo trabajamos?
                 </Link>
               </li>
               <li>
