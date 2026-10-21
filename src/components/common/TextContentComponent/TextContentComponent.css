@@ -50,16 +50,10 @@
   font-weight: 800;
 }
 .text-content__main--bodoni {
-  font-family: Bodoni, 'Bodoni MT', serif;
+  font-family: 'Bodoni Moda', Georgia, serif;
 }
 .text-content__main--inter {
   font-family: Inter, sans-serif;
-}
-.text-content__main--yallowtail {
-  font-family: Yallowtail, cursive;
-}
-.text-content__main--euphoria {
-  font-family: Euphoria, cursive;
 }
 .text-content__paragraph {
   margin: 0;

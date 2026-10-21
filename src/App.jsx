@@ -1,26 +1,26 @@
-import ClientsComponent from './components/ClientsComponent/ClientsComponent.jsx';
+import { Route, Routes } from 'react-router-dom';
 import FooterComponent from './components/FooterComponent/FooterComponent.jsx';
-import HeaderComponent from './components/HeaderComponent/HeaderComponent';
-import HowWeWorkComponent from './components/HowWeWorkComponent/HowWeWorkComponent.jsx';
-import Navbar from './components/NavbarComponent/NavbarComponent.jsx';
-import Roadmap from './components/RoadmapComponent/RoadmapComponent.jsx';
-import ServicesSection from './components/ServicesComponent/ServicesSection';
-
+import HomePageComponent from './components/HomePageComponent/HomePageComponent.jsx';
+import HowWeWorkPageComponent from './components/HowWeWorkComponent/HowWeWorkPageComponent.jsx';
+import NotFoundPageComponent from './components/NotFoundPageComponent/NotFoundPageComponent.jsx';
+import AppPresentationProvider from './app/providers/AppPresentationProvider.jsx';
+import ScrollToTop from './app/ScrollToTop.jsx';
+import MainLayout from './app/MainLayout.jsx';
 import './App.css';
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <HeaderComponent />
-      <div className="services-clients-transition">
-        <ServicesSection />
-        <ClientsComponent />
-      </div>
-      <Roadmap />
-      <HowWeWorkComponent />
+    <AppPresentationProvider>
+      <ScrollToTop />
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomePageComponent />} />
+          <Route path="/como-trabajamos" element={<HowWeWorkPageComponent />} />
+        </Route>
+        <Route path="*" element={<NotFoundPageComponent />} />
+      </Routes>
       <FooterComponent />
-    </>
+    </AppPresentationProvider>
   );
 }
 

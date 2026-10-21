@@ -18,26 +18,62 @@ export default function useServicesReveal() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
-    section.classList.add('services--animate');
+    const timers = new Set();
+    const ownedClasses = new Map();
+    let disposed = false;
+    let observer;
+    const addClass = (element, className) => {
+      if (!element.classList.contains(className)) {
+        element.classList.add(className);
+        if (!ownedClasses.has(element)) {
+          ownedClasses.set(element, new Set());
+        }
+        ownedClasses.get(element).add(className);
+      }
+    };
+    const cleanup = () => {
+      disposed = true;
+      observer?.disconnect();
+      timers.forEach((timer) => window.clearTimeout(timer));
+      timers.clear();
+      ownedClasses.forEach((classes, element) => {
+        classes.forEach((className) => element.classList.remove(className));
+      });
+      ownedClasses.clear();
+    };
+
+    addClass(section, 'services--animate');
     if (!('IntersectionObserver' in window)) {
-      cards.forEach((card) => card.classList.add('is-visible', 'is-settled'));
-      return;
+      cards.forEach((card) => {
+        addClass(card, 'is-visible');
+        addClass(card, 'is-settled');
+      });
+      return cleanup;
     }
-    const observer = new IntersectionObserver(
+    observer = new IntersectionObserver(
       (entries) => {
+        if (disposed) {
+          return;
+        }
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const card = entry.target;
-            card.classList.add('is-visible');
+            addClass(card, 'is-visible');
             observer.unobserve(card);
-            window.setTimeout(() => card.classList.add('is-settled'), 1100);
+            const timer = window.setTimeout(() => {
+              timers.delete(timer);
+              if (!disposed) {
+                addClass(card, 'is-settled');
+              }
+            }, 1100);
+            timers.add(timer);
           }
         });
       },
       { threshold: 0.3 },
     );
     cards.forEach((card) => observer.observe(card));
-    return () => observer.disconnect();
+    return cleanup;
   }, []);
 
   return { sectionRef };

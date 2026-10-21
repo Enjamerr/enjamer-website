@@ -32,7 +32,7 @@ function ClientsComponent() {
               upperText="Un lugar para tu idea"
               mainText="¿Y tú qué clase de cliente eres?"
               htmlTag="h2"
-              fontFamily="Bodoni"
+              fontFamily="Bodoni Moda"
               supportingParagraph="Un gran emprendedor sabe que las grandes ideas comienzan con una chispa."
               paragraphPosition="bottom"
             />
