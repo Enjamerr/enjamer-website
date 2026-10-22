@@ -8,6 +8,7 @@ import Roadmap from './components/RoadmapComponent/RoadmapComponent.jsx';
 import ServicesSection from './components/ServicesComponent/ServicesSection';
 import PageTransition from './components/common/PageTransition/PageTransition.jsx';
 import AboutUs from './pages/AboutUs/AboutUs.jsx';
+import Faq from './pages/Faq/Faq.jsx';
 import OurName from './pages/OurName/OurName.jsx';
 import Principles from './pages/Principles/Principles.jsx';
 import Purpose from './pages/Purpose/Purpose.jsx';
@@ -42,6 +43,7 @@ function App() {
         <Route path="/nosotros/nuestro-nombre" element={page(<OurName />)} />
         <Route path="/nosotros/valores" element={page(<Values />)} />
         <Route path="/nosotros/principios" element={page(<Principles />)} />
+        <Route path="/preguntas-frecuentes" element={page(<Faq />)} />
         <Route path="*" element={<Home />} />
       </Routes>
       <FooterComponent />
