@@ -1,0 +1,25 @@
+.about-us {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(at 0 8%, #520fb818, #0000 40%),
+    radial-gradient(at 100% 35%, #168bff0b, #0000 35%), #0b0d14;
+  color: #fff;
+  padding: clamp(7rem, 10vw, 8.5rem) clamp(1.25rem, 5vw, 4rem);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.about-us-inner {
+  position: relative;
+  z-index: 1;
+  max-width: min(960px, 100% - 48px);
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 25px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,91 @@
+.our-name {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  background:
+    radial-gradient(at 0 8%, #520fb818, #0000 40%),
+    radial-gradient(at 100% 35%, #168bff0b, #0000 35%), #0b0d14;
+  color: #fff;
+  padding: clamp(7rem, 10vw, 8.5rem) clamp(1.25rem, 5vw, 4rem);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.our-name-inner {
+  position: relative;
+  z-index: 1;
+  max-width: min(1180px, 100% - 48px);
+  margin: 0 auto;
+  padding: 0 25px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.our-name-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.our-name-text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 560px;
+}
+
+.our-name-desc {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #c7c7c7;
+}
+
+.our-name-visual {
+  flex: 1;
+  min-width: 300px;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.isotipo {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  filter: drop-shadow(0 12px 36px #0003);
+}
+
+.our-name-caption {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #9ca3af;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .our-name-inner {
+    gap: 2rem;
+  }
+
+  .our-name-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .our-name-text,
+  .our-name-visual {
+    min-width: auto;
+    max-width: 100%;
+  }
+}

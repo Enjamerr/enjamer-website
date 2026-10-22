@@ -2,6 +2,24 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import heroVideo from '../../../assets/hero-video.mp4';
 
+const REVEALED_KEY = 'enjamer:hero-revealed';
+
+function hasRevealed() {
+  try {
+    return window.sessionStorage.getItem(REVEALED_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+function rememberRevealed() {
+  try {
+    window.sessionStorage.setItem(REVEALED_KEY, '1');
+  } catch {
+    // Storage unavailable, the hero simply animates again.
+  }
+}
+
 export default function useHeaderAnimation() {
   const headerRef = useRef(null);
   const videoRef = useRef(null);
@@ -35,7 +53,7 @@ export default function useHeaderAnimation() {
           clearTimeout(watchdog);
           header.dataset.phase = 'ready';
           const items = header.querySelectorAll('[data-hero-animate]');
-          if (reducedMotion || contentShown) {
+          if (reducedMotion || contentShown || hasRevealed()) {
             gsap.set(items, { autoAlpha: 1, y: 0 });
           } else {
             gsap.fromTo(
@@ -44,6 +62,7 @@ export default function useHeaderAnimation() {
               { autoAlpha: 1, y: 0, duration: 0.65, stagger: 0.18, ease: 'power2.out' },
             );
           }
+          rememberRevealed();
           contentShown = true;
         });
         const fallback = () => {
@@ -72,7 +91,9 @@ export default function useHeaderAnimation() {
         const imageReady = () => {
           context.reveal();
         };
-        if (desktop && !reducedMotion && !videoAttempted) {
+        if (hasRevealed()) {
+          context.reveal();
+        } else if (desktop && !reducedMotion && !videoAttempted) {
           videoAttempted = true;
           video.addEventListener('ended', ended);
           video.addEventListener('error', fallback);

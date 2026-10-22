@@ -1,4 +1,14 @@
-import { CircleHelp, ClipboardCheck, House, LayoutGrid, Users } from 'lucide-react';
+import {
+  CircleHelp,
+  ClipboardCheck,
+  Compass,
+  Gem,
+  Hexagon,
+  House,
+  LayoutGrid,
+  Target,
+  Users,
+} from 'lucide-react';
 
 export const NAV_LINKS = [
   {
@@ -30,6 +40,33 @@ export const NAV_LINKS = [
     label: 'FAQ',
     to: '/preguntas-frecuentes',
     icon: CircleHelp,
+  },
+];
+
+export const NAV_DROPDOWN = [
+  {
+    id: 'proposito',
+    label: 'Propósito',
+    to: '/nosotros/proposito',
+    icon: Target,
+  },
+  {
+    id: 'nuestro-nombre',
+    label: 'Nuestro nombre',
+    to: '/nosotros/nuestro-nombre',
+    icon: Hexagon,
+  },
+  {
+    id: 'valores',
+    label: 'Valores',
+    to: '/nosotros/valores',
+    icon: Gem,
+  },
+  {
+    id: 'principios',
+    label: 'Principios',
+    to: '/nosotros/principios',
+    icon: Compass,
   },
 ];
 
