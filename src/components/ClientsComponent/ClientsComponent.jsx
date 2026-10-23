@@ -36,7 +36,7 @@ function ClientsComponent() {
               supportingParagraph="Un gran emprendedor sabe que las grandes ideas comienzan con una chispa."
               paragraphPosition="bottom"
             />
-            <ButtonComponent text="Construyamos juntos lo que viene" to="/nosotros" />
+            <ButtonComponent text="Construyamos juntos lo que viene" to="/contacto" />
           </div>
         </div>
       </div>

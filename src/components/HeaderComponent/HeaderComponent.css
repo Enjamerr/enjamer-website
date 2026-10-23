@@ -32,6 +32,9 @@
 .header[data-phase='ready'] .header__video {
   filter: blur(6px);
 }
+.header[data-returning='true'] .header__background {
+  filter: blur(6px);
+}
 .header::after {
   content: '';
   position: absolute;

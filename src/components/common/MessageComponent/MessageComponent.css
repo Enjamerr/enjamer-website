@@ -1,0 +1,94 @@
+.message {
+  position: fixed;
+  z-index: 1000;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  box-sizing: border-box;
+  width: min(420px, calc(100vw - 32px));
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  padding: 20px 20px 24px;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 14px;
+  background: linear-gradient(110deg, #1f293780, #101824a6);
+  box-shadow:
+    0 12px 36px #0006,
+    inset 0 1px #ffffff0d;
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  backdrop-filter: blur(24px) saturate(150%);
+  color: #f5f7fa;
+  font-family: Inter, sans-serif;
+  animation: message-enter 200ms ease-out;
+}
+
+.message__icon {
+  flex-shrink: 0;
+  width: 21px;
+  height: 21px;
+  color: #4f46e5;
+}
+
+.message[data-type='success'] .message__icon {
+  color: #9be7c4;
+}
+
+.message__text {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.message__track {
+  position: absolute;
+  inset: auto 0 0;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 0 0 14px 14px;
+  background: rgb(255 255 255 / 10%);
+}
+
+.message__progress {
+  height: 100%;
+  background: linear-gradient(115deg, #520fb8, #4f46e5);
+  transform-origin: left;
+  animation: message-countdown linear forwards;
+}
+
+@keyframes message-countdown {
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes message-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .message {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    padding: 16px 16px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .message {
+    animation: none;
+  }
+  .message__progress {
+    animation-timing-function: steps(6, end);
+  }
+}
