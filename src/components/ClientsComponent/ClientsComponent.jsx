@@ -1,6 +1,6 @@
 import ButtonComponent from '../common/ButtonComponent/ButtonComponent';
 import TextContentComponent from '../common/TextContentComponent/TextContentComponent.jsx';
-import useClientsReveal from './hooks/useClientsReveal';
+import useClientsReveal from './utils/useClientsReveal';
 import { CLIENTS } from './utils/clients.js';
 import './ClientsComponent.css';
 
