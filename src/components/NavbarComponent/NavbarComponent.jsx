@@ -45,7 +45,7 @@ function MobileMenu({ links, cta, open, onNavigate }) {
   return (
     <div className="mobile-menu" data-open={open} inert={!open}>
       <div className="brand drawer-brand">
-        <img className="brand__imagotipo" src="/imagotipo.svg" alt="Enjamer" />
+        <img className="brand__imagotipo" src="/imagotipoClaro.svg" alt="Enjamer" />
       </div>
       <nav aria-label="Navegación móvil">
         {links.map((link) => {

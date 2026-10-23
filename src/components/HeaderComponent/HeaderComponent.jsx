@@ -42,7 +42,7 @@ export default function HeaderComponent({ entranceCompleted, finalFrame, onRevea
           paragraphPosition="bottom"
         />
         <div className="header__actions">
-          <ButtonComponent text="Cuéntanos qué necesitas" to="/nosotros" data-hero-animate />
+          <ButtonComponent text="Cuéntanos qué necesitas" to="/contacto" data-hero-animate />
           <ButtonComponent
             text="Explora nuestros servicios"
             to="/servicios"
