@@ -1,6 +1,6 @@
 import ButtonComponent from '../common/ButtonComponent/ButtonComponent';
 import TextContentComponent from '../common/TextContentComponent/TextContentComponent.jsx';
-import useRoadmapReveal from './hooks/useRoadmapReveal';
+import useRoadmapReveal from './utils/useRoadmapReveal';
 import { ROADMAP_STAGES } from './utils/roadmapStages.js';
 import './RoadmapComponent.css';
 
