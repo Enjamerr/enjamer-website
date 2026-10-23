@@ -22,6 +22,9 @@
   -webkit-mask-image: linear-gradient(180deg, #000 46%, transparent 99%);
   mask-image: linear-gradient(180deg, #000 46%, transparent 99%);
 }
+.header__background--end {
+  filter: blur(6px);
+}
 .header__video {
   visibility: hidden;
 }

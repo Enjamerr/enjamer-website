@@ -1,0 +1,24 @@
+.not-found-page {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  padding: calc(98px + clamp(2.5rem, 5vw, 4rem)) clamp(1.25rem, 5vw, 3.5rem)
+    clamp(6rem, 11vw, 10rem);
+  background: radial-gradient(ellipse at 50% 0%, #10162a 0%, transparent 55%), #070b12;
+  color: #f5f7fa;
+  text-align: center;
+}
+
+.not-found-page__inner {
+  display: grid;
+  justify-items: center;
+  gap: clamp(1.5rem, 4vw, 2.25rem);
+  width: 100%;
+  max-width: 760px;
+}
+
+.not-found-page__inner .text-content__paragraph {
+  margin: 0 auto;
+}
