@@ -15,7 +15,7 @@ export const NAV_LINKS = [
   },
   {
     id: 'como-trabajamos',
-    label: 'Cómo trabajamos',
+    label: '¿Cómo trabajamos?',
     to: '/como-trabajamos',
     icon: ClipboardCheck,
   },
