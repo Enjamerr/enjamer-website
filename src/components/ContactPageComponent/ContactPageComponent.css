@@ -159,12 +159,50 @@
   color: #9ba3b8;
 }
 
+.contact-form__field input:-webkit-autofill,
+.contact-form__field input:-webkit-autofill:hover,
+.contact-form__field input:-webkit-autofill:focus,
+.contact-form__field input:-webkit-autofill:active {
+  -webkit-text-fill-color: #fff;
+  caret-color: #fff;
+  box-shadow:
+    0 0 0 1000px #060a11 inset,
+    inset 3px 3px 7px rgb(0 0 0 / 26%),
+    inset -1px -1px 3px rgb(255 255 255 / 3%);
+  transition: background-color 9999s ease-out;
+}
+
+/* Firefox and other engines that implement the standard autofill pseudo-class. */
+.contact-form__field input:autofill {
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  caret-color: #fff;
+  background-color: #060a11;
+  box-shadow:
+    0 0 0 1000px #060a11 inset,
+    inset 3px 3px 7px rgb(0 0 0 / 26%),
+    inset -1px -1px 3px rgb(255 255 255 / 3%);
+  transition: background-color 9999s ease-out;
+}
+
+.contact-form__select {
+  position: relative;
+}
+
 .contact-form__field select {
   appearance: none;
   padding-right: 44px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239ba3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 15px center;
+}
+
+.contact-form__select-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 16px;
+  height: 16px;
+  color: #9ba3b8;
+  pointer-events: none;
+  translate: 0 -50%;
 }
 
 .contact-form__field select option {
@@ -181,8 +219,8 @@
 .contact-form__field input:focus-visible,
 .contact-form__field select:focus-visible,
 .contact-form__field textarea:focus-visible {
-  border-color: #7c3cfc;
-  outline: 2px solid #7c3cfc;
+  border-color: rgb(245 247 250 / 48%);
+  outline: 2px solid rgb(245 247 250 / 72%);
   outline-offset: 2px;
 }
 
@@ -221,31 +259,53 @@
   cursor: pointer;
 }
 
-.contact-form__consent input {
+.contact-form__checkbox {
+  position: relative;
   flex-shrink: 0;
   width: 21px;
   height: 21px;
   margin-top: 2px;
+}
+
+.contact-form__checkbox input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   appearance: none;
   border: 1px solid rgb(255 255 255 / 15%);
   border-radius: 5px;
   background: rgb(6 10 17 / 68%);
   box-shadow: inset 3px 3px 7px rgb(0 0 0 / 26%);
   cursor: pointer;
-  display: grid;
-  place-content: center;
 }
 
-.contact-form__consent input:checked {
+.contact-form__checkbox input:checked {
   border-color: #7c3cfc;
   background-color: #520fb8;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
-.contact-form__consent input:focus-visible {
-  outline: 2px solid #7c3cfc;
+.contact-form__checkbox-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 14px;
+  height: 14px;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  translate: -50% -50%;
+  transition: opacity 0.15s;
+}
+
+.contact-form__checkbox input:checked + .contact-form__checkbox-icon {
+  opacity: 1;
+}
+
+.contact-form__checkbox input:focus-visible {
+  outline: 2px solid rgb(245 247 250 / 72%);
   outline-offset: 3px;
 }
 
@@ -265,6 +325,11 @@
   margin-top: 25px;
 }
 
+.contact-form__submit:focus-visible {
+  outline: 2px solid rgb(245 247 250 / 72%) !important;
+  outline-offset: 3px;
+}
+
 .contact-form__submit:disabled {
   cursor: not-allowed;
   opacity: 0.55;
@@ -281,6 +346,10 @@
   text-align: center;
   color: #9be7c4;
   font-size: 0.875rem;
+}
+
+.contact-form__status--error {
+  color: #ffd6e0;
 }
 
 @media (max-width: 767px) {

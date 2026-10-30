@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import TextContentComponent from '../common/TextContentComponent/TextContentComponent.jsx';
 import ButtonComponent from '../common/ButtonComponent/ButtonComponent.jsx';
+import NotFoundMascot from './NotFoundMascot.jsx';
 import useNotFoundAnimation from './hooks/useNotFoundAnimation.js';
 import './NotFoundPageComponent.css';
 
@@ -9,23 +9,37 @@ export default function NotFoundPageComponent() {
 
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = 'Enjamer - 404';
+    document.title = 'Enjamer - Página no encontrada';
     return () => {
       document.title = previousTitle;
     };
   }, []);
 
   return (
-    <main className="not-found-page" ref={pageRef} aria-labelledby="not-found-title">
-      <img className="not-found-page__logo" src="/imagotipoClaro.svg" alt="Enjamer" />
-      <TextContentComponent
-        upperText="404"
-        mainText="Página no encontrada"
-        htmlTag="h1"
-        mainId="not-found-title"
-        supportingParagraph="La dirección que buscas no corresponde a una página disponible."
-      />
-      <ButtonComponent text="Volver al inicio" to="/" />
+    <main className="not-found-page" id="contenido" aria-labelledby="not-found-title" ref={pageRef}>
+      <div className="not-found-page__inner">
+        <img className="not-found-page__logo" src="/imagotipoClaro.svg" alt="Enjamer" />
+
+        <div className="not-found-page__content">
+          <p className="not-found-page__eyebrow">
+            <span aria-hidden="true" />
+            Error 404
+          </p>
+          <h1 className="not-found-page__title" id="not-found-title">
+            Esta página no existe
+          </h1>
+        </div>
+
+        <NotFoundMascot />
+
+        <p className="not-found-page__paragraph">
+          Puede que el enlace haya cambiado o que la página todavía no esté disponible.
+        </p>
+
+        <div className="not-found-page__cta">
+          <ButtonComponent text="Volver al inicio" to="/" />
+        </div>
+      </div>
     </main>
   );
 }

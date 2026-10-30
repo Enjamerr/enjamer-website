@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import ContactPageComponent from './components/ContactPageComponent/ContactPageComponent.jsx';
 import FooterComponent from './components/FooterComponent/FooterComponent.jsx';
 import HomePageComponent from './components/HomePageComponent/HomePageComponent.jsx';
 import HowWeWorkPageComponent from './components/HowWeWorkComponent/HowWeWorkPageComponent.jsx';
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePageComponent />} />
+          <Route path="/contacto" element={<ContactPageComponent />} />
           <Route path="/como-trabajamos" element={<HowWeWorkPageComponent />} />
         </Route>
         <Route path="*" element={<NotFoundPageComponent />} />

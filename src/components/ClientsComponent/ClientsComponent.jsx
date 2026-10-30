@@ -1,6 +1,6 @@
 import ButtonComponent from '../common/ButtonComponent/ButtonComponent';
 import TextContentComponent from '../common/TextContentComponent/TextContentComponent.jsx';
-import useClientsReveal from './utils/useClientsReveal';
+import useClientsReveal from './hooks/useClientsReveal';
 import { CLIENTS } from './utils/clients.js';
 import './ClientsComponent.css';
 
@@ -36,7 +36,7 @@ function ClientsComponent() {
               supportingParagraph="Un gran emprendedor sabe que las grandes ideas comienzan con una chispa."
               paragraphPosition="bottom"
             />
-            <ButtonComponent text="Construyamos juntos lo que viene" to="/nosotros" />
+            <ButtonComponent text="Construyamos juntos lo que viene" to="/contacto" />
           </div>
         </div>
       </div>
