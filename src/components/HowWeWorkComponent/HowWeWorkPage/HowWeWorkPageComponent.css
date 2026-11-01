@@ -41,7 +41,7 @@ html:has(.process-page) {
       rgb(8 13 20 / 92%) 68%,
       #0b0d14 100%
     ),
-    url('../../assets/hero-image.jpg');
+    url('../../../assets/hero-image.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

@@ -1,9 +1,9 @@
 import { useContext, useEffect, useLayoutEffect, useRef } from 'react';
-import TextContentComponent from '../common/TextContentComponent/TextContentComponent.jsx';
-import BottomPanelComponent from '../common/BottonPanelComponent/BottonPanelComponent.jsx';
-import ProcessStageComponent from './utils/ProcessStageComponent.jsx';
+import TextContentComponent from '../../common/TextContentComponent/TextContentComponent.jsx';
+import BottomPanelComponent from '../../common/BottonPanelComponent/BottonPanelComponent.jsx';
+import ProcessStageComponent from './utils/components/ProcessStageComponent/ProcessStageComponent.jsx';
 import { gsap } from 'gsap';
-import { AppPresentationContext } from '../../app/providers/AppPresentationContext.js';
+import { AppPresentationContext } from '../../../app/providers/AppPresentationContext.js';
 import './HowWeWorkPageComponent.css';
 
 export default function HowWeWorkPageComponent() {
@@ -37,6 +37,7 @@ export default function HowWeWorkPageComponent() {
       document.title = previousTitle;
     };
   }, []);
+
 
   return (
     <main className="process-page process-route" id="contenido">

@@ -42,7 +42,10 @@ function Roadmap({ stages = ROADMAP_STAGES }) {
           </ol>
         </div>
         <div className="roadmap__inner roadmap__foot">
-          <ButtonComponent text="Explorar las siete etapas" to="/como-trabajamos" />
+          <ButtonComponent
+            text="Explorar las siete etapas"
+            to="/como-trabajamos#etapa-1" 
+          />
         </div>
       </div>
     </section>

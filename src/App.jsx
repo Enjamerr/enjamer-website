@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import ContactPageComponent from './components/ContactPageComponent/ContactPageComponent.jsx';
 import FooterComponent from './components/FooterComponent/FooterComponent.jsx';
 import HomePageComponent from './components/HomePageComponent/HomePageComponent.jsx';
-import HowWeWorkPageComponent from './components/HowWeWorkComponent/HowWeWorkPageComponent.jsx';
+import HowWeWorkPageComponent from './components/HowWeWorkComponent/HowWeWorkPage/HowWeWorkPageComponent.jsx';
 import NotFoundPageComponent from './components/NotFoundPageComponent/NotFoundPageComponent.jsx';
 import AppPresentationProvider from './app/providers/AppPresentationProvider.jsx';
 import ScrollToTop from './app/ScrollToTop.jsx';

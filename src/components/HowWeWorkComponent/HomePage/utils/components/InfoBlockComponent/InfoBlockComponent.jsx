@@ -1,6 +1,6 @@
-import './InfoBlock.css';
+import './InfoBlockComponent.css';
 
-export default function InfoBlock({ title, description }) {
+export default function InfoBlockComponent({ title, description }) {
   return (
     <div className="info-block">
       <h3 className="info-block-title">{title}</h3>
