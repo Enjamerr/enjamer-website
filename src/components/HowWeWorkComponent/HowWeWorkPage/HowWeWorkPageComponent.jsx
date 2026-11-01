@@ -32,7 +32,7 @@ export default function HowWeWorkPageComponent() {
 
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = 'Enjamer - ¿Cómo trabajamos?';
+    document.title = '¿Cómo trabajamos?';
     return () => {
       document.title = previousTitle;
     };
