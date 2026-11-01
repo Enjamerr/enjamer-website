@@ -2,15 +2,18 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 export default function ProcessStageItemComponent({ stage }) {
-  const { hash } = useLocation()
-  
+  const { hash } = useLocation();
+
   const [expanded, setExpanded] = useState(false);
   const participationId = `${stage.id}-participation`;
 
   useEffect(() => {
-    if (!hash) return;
+    if (!hash) {
+      return;
+    }
 
-    document.getElementById(decodeURIComponent(hash.slice(1)))
+    document
+      .getElementById(decodeURIComponent(hash.slice(1)))
       ?.scrollIntoView({ behavior: 'smooth' });
   }, [hash]);
 

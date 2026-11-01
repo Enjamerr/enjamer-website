@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-// Restore only known fields with the expected types from the form draft.
 export default function useSessionStorageState(key, initialValues) {
   const [values, setValues] = useState(() => {
     try {

@@ -205,7 +205,7 @@
 .contact-form__field textarea:focus-visible {
   border-color: rgb(245 247 250 / 48%);
   outline: none;
-  outline-offset:none;
+  outline-offset: none;
 }
 
 .contact-form__field [aria-invalid='true'] {
@@ -290,7 +290,7 @@
 
 .contact-form__checkbox input:focus-visible {
   outline: none;
-  outline-offset:none;
+  outline-offset: none;
 }
 
 .contact-form__consent a {
@@ -311,7 +311,7 @@
 
 .contact-form__submit:focus-visible {
   outline: none;
-  outline-offset:none;
+  outline-offset: none;
 }
 
 .contact-form__submit:disabled {
