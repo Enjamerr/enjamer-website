@@ -1,8 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-export default function ProcessStage({ stage }) {
+export default function ProcessStageItemComponent({ stage }) {
+  const { hash } = useLocation()
+  
   const [expanded, setExpanded] = useState(false);
   const participationId = `${stage.id}-participation`;
+
+  useEffect(() => {
+    if (!hash) return;
+
+    document.getElementById(decodeURIComponent(hash.slice(1)))
+      ?.scrollIntoView({ behavior: 'smooth' });
+  }, [hash]);
 
   return (
     <article className="process-stage" id={stage.id} aria-labelledby={`${stage.id}-title`}>

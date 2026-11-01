@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import ProcessStage from './ProcessStage.jsx';
-import { PROCESS_STAGES } from './processStages.js';
+import ProcessStageItemComponent from '../ProcessStageItemComponent/ProcessStageItemComponent.jsx';
+import { PROCESS_STAGES } from './utils/processStages.js';
 
 export default function ProcessStageComponent() {
   const [currentStage, setCurrentStage] = useState(PROCESS_STAGES[0].id);
@@ -28,7 +28,7 @@ export default function ProcessStageComponent() {
       </aside>
       <div className="process-page__journey">
         {PROCESS_STAGES.map((stage) => (
-          <ProcessStage key={stage.id} stage={stage} />
+          <ProcessStageItemComponent key={stage.id} stage={stage} />
         ))}
       </div>
     </section>

@@ -1,6 +1,6 @@
-import TextContentComponent from '../common/TextContentComponent/TextContentComponent.jsx';
-import InfoBlock from './utils/InfoBlock.jsx';
-import BottonPanelComponent from '../common/BottonPanelComponent/BottonPanelComponent.jsx';
+import TextContentComponent from '../../common/TextContentComponent/TextContentComponent.jsx';
+import InfoBlockComponent from './utils/components/InfoBlockComponent/InfoBlockComponent.jsx';
+import BottonPanelComponent from '../../common/BottonPanelComponent/BottonPanelComponent.jsx';
 import './HowWeWorkComponent.css';
 
 function HowWeWorkComponent() {
@@ -16,15 +16,15 @@ function HowWeWorkComponent() {
         />
 
         <div className="info-blocks">
-          <InfoBlock
+          <InfoBlockComponent
             title="Familia"
             description="No importa si eres un estudiante de bachillerato, tampoco importa si eres el CEO de una multinacional. Te haremos sentir como mereces. Te haremos sentir especial."
           />
-          <InfoBlock
+          <InfoBlockComponent
             title="Conocimiento compartido"
             description="Siempre hay algo que enseñar, aprender y mejorar juntos."
           />
-          <InfoBlock
+          <InfoBlockComponent
             title="Cercanía con responsabilidad"
             description="Escuchamos y acompañamos tanto los logros como las dificultades."
           />

@@ -4,7 +4,7 @@ import HeaderComponent from '../HeaderComponent/HeaderComponent.jsx';
 import ServicesSection from '../ServicesComponent/ServicesSection.jsx';
 import ClientsComponent from '../ClientsComponent/ClientsComponent.jsx';
 import Roadmap from '../RoadmapComponent/RoadmapComponent.jsx';
-import HowWeWorkComponent from '../HowWeWorkComponent/HowWeWorkComponent.jsx';
+import HowWeWorkComponent from '../HowWeWorkComponent/HomePage/HowWeWorkComponent.jsx';
 import { homeVideoState } from './utils/homeVideoState.js';
 import './HomePageComponent.css';
 
