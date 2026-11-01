@@ -9,7 +9,7 @@ export default function NotFoundPageComponent() {
 
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = 'Enjamer - Página no encontrada';
+    document.title = '404 - Not Found';
     return () => {
       document.title = previousTitle;
     };

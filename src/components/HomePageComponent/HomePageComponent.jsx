@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AppPresentationContext } from '../../app/providers/AppPresentationContext.js';
 import HeaderComponent from '../HeaderComponent/HeaderComponent.jsx';
 import ServicesSection from '../ServicesComponent/ServicesSection.jsx';
@@ -10,6 +10,15 @@ import './HomePageComponent.css';
 
 export default function HomePageComponent() {
   const revealNavigation = useContext(AppPresentationContext);
+
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = 'Inicio';
+
+    return () => {
+      document.title = previousTitle;
+    };
+  }, []);
 
   return (
     <>

@@ -28,7 +28,7 @@ export default function ContactPageComponent() {
   } = useContactForm();
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = 'Enjamer - Contacto';
+    document.title = 'Contacto';
 
     return () => {
       document.title = previousTitle;
