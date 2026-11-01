@@ -1,37 +1,36 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Check, ChevronDown } from 'lucide-react';
 
 import './DropdownComponent.css';
 
 /**
- * Representa una opción disponible en el menú desplegable.
+ * Represents an available option in the dropdown menu.
  *
  * @typedef {Object} DropdownOption
- * @property {string} id - Identificador único de la opción.
- * @property {string} label - Texto visible de la opción.
- * @property {import('react').ReactNode} [icon] - Ícono opcional.
+ * @property {string} id - Unique identifier of the option.
+ * @property {string} label - Display text of the option.
+ * @property {import('react').ReactNode} [icon] - Optional icon.
  */
 
 /**
- * Muestra un menú desplegable reutilizable y accesible.
+ * Renders a reusable and accessible dropdown menu.
  *
- * Permite seleccionar opciones mediante clic o teclado, buscar por
- * la primera letra, mostrar íconos y gestionar estados de validación.
+ * Supports option selection via mouse or keyboard, first-letter
+ * searching, icons, and validation states.
  *
- * @param {Object} props - Propiedades del componente.
- * @param {DropdownOption[]} [props.options=[]] - Opciones disponibles.
- * @param {string} [props.value=''] - ID de la opción seleccionada.
- * @param {(value: string) => void} [props.onChange] - Función que recibe el ID seleccionado.
- * @param {string} [props.id] - ID HTML del botón desplegable.
- * @param {string} [props.name] - Nombre del campo oculto del formulario.
- * @param {string} [props.label='Opciones'] - Nombre accesible de la lista.
- * @param {string} [props.placeholder='Selecciona una opción'] - Texto mostrado sin selección.
- * @param {boolean} [props.required=false] - Indica si el campo es obligatorio.
- * @param {boolean} [props.invalid=false] - Indica un error de validación.
- * @param {string} [props.describedBy] - ID del elemento que describe el campo.
- * @param {boolean} [props.fullWidth=false] - Activa el atributo de ancho completo para CSS.
- * @returns {import('react').ReactElement} Elemento del menú desplegable.
+ * @param {Object} props - Component properties.
+ * @param {DropdownOption[]} [props.options=[]] - Available options.
+ * @param {string} [props.value=''] - ID of the selected option.
+ * @param {(value: string) => void} [props.onChange] - Callback that receives the selected option ID.
+ * @param {string} [props.id] - HTML ID of the dropdown trigger button.
+ * @param {string} [props.name] - Name of the hidden form field.
+ * @param {string} [props.label='Opciones'] - Accessible name of the options list.
+ * @param {string} [props.placeholder='Selecciona una opción'] - Text displayed when no option is selected.
+ * @param {boolean} [props.required=false] - Indicates whether the field is required.
+ * @param {boolean} [props.invalid=false] - Indicates a validation error.
+ * @param {string} [props.describedBy] - ID of the element describing the field.
+ * @param {boolean} [props.fullWidth=false] - Enables the full-width attribute for CSS styling.
+ * @returns {import('react').ReactElement} Dropdown menu element.
  */
 export default function DropdownComponent({
   options = [],

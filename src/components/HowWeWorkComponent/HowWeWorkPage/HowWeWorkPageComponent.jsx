@@ -38,7 +38,6 @@ export default function HowWeWorkPageComponent() {
     };
   }, []);
 
-
   return (
     <main className="process-page process-route" id="contenido">
       <div className="process-page__backdrop" aria-hidden="true" />

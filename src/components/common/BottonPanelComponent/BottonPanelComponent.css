@@ -57,11 +57,12 @@
 
   .bottom-panel-inner {
     flex-direction: column;
-    align-items: flex-start;
   }
-
-  .principal .text-content__paragraph {
+  .principal .text-content {
     text-align: center;
+  }
+  .text-content__upper {
+    justify-content: center !important;
   }
   .bottom-panel .button_component {
     display: flex;

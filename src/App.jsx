@@ -1,9 +1,7 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import ContactPageComponent from './components/ContactPageComponent/ContactPageComponent.jsx';
-import FooterComponent from './components/FooterComponent/FooterComponent.jsx';
 import HomePageComponent from './components/HomePageComponent/HomePageComponent.jsx';
 import HowWeWorkPageComponent from './components/HowWeWorkComponent/HowWeWorkPage/HowWeWorkPageComponent.jsx';
-import NotFoundPageComponent from './components/NotFoundPageComponent/NotFoundPageComponent.jsx';
 import AppPresentationProvider from './app/providers/AppPresentationProvider.jsx';
 import ScrollToTop from './app/ScrollToTop.jsx';
 import MainLayout from './app/MainLayout.jsx';
@@ -19,9 +17,19 @@ function App() {
           <Route path="/contacto" element={<ContactPageComponent />} />
           <Route path="/como-trabajamos" element={<HowWeWorkPageComponent />} />
         </Route>
-        <Route path="*" element={<NotFoundPageComponent />} />
+        <Route
+          path="*"
+          // Provisional design for a 404 page
+          element={
+            <>
+              <center>
+                <p>404 - Página no encontrada</p>
+                <Link to="/">Volver</Link>
+              </center>
+            </>
+          }
+        />
       </Routes>
-      <FooterComponent />
     </AppPresentationProvider>
   );
 }
