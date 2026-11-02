@@ -204,8 +204,6 @@
 .contact-form__field select:focus-visible,
 .contact-form__field textarea:focus-visible {
   border-color: rgb(245 247 250 / 48%);
-  outline: none;
-  outline-offset: none;
 }
 
 .contact-form__field [aria-invalid='true'] {
@@ -288,11 +286,6 @@
   opacity: 1;
 }
 
-.contact-form__checkbox input:focus-visible {
-  outline: none;
-  outline-offset: none;
-}
-
 .contact-form__consent a {
   color: #ffd6e0;
   text-decoration: underline;
@@ -307,11 +300,6 @@
   width: 100%;
   max-width: none;
   margin-top: 25px;
-}
-
-.contact-form__submit:focus-visible {
-  outline: none;
-  outline-offset: none;
 }
 
 .contact-form__submit:disabled {

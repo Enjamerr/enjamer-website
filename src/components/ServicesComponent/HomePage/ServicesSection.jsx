@@ -1,13 +1,14 @@
 import { Code, Compass, Layers, Users, Wrench } from 'lucide-react';
 
-import TextContentComponent from '../common/TextContentComponent/TextContentComponent';
-import ServicesCard from './ServicesCard/ServicesCard';
-import useServicesReveal from './hooks/useServicesReveal';
+import TextContentComponent from '../../common/TextContentComponent/TextContentComponent';
+import ServicesCard from './utils/components/ServicesCardComponent/ServicesCard';
+import useServicesReveal from './utils/hooks/useServicesReveal';
 import './ServicesSection.css';
+import { SERVICES } from '../ServicesPage/utils/ServicesPageData.js';
 
 const services = [
   {
-    id: 'saas',
+    id: 'productos-saas',
     title: 'Productos SaaS',
     description:
       'HRM, ERP, CRM y más; herramientas digitales preparadas para evolucionar y adaptarse a ti, a tu negocio, a tu progreso.',
@@ -43,25 +44,25 @@ const services = [
     ),
   },
   {
-    id: 'software',
+    id: 'software-a-medida',
     title: 'Desarrollo de software a medida',
     description: 'Software que se adapta a tu forma de trabajar.',
     Icon: Code,
   },
   {
-    id: 'orientacion',
+    id: 'orientacion-tecnica',
     title: 'Orientación técnica',
     description: 'Claridad para tomar tu próxima decisión.',
     Icon: Compass,
   },
   {
-    id: 'capacidad',
+    id: 'capacidad-adicional',
     title: 'Capacidad adicional para equipos tecnológicos',
     description: 'Más capacidades para construir juntos.',
     Icon: Users,
   },
   {
-    id: 'soporte',
+    id: 'soporte-y-evolucion',
     title: 'Soporte y evolución de soluciones',
     description: 'Acompañamiento que continúa después de la entrega.',
     Icon: Wrench,
@@ -94,8 +95,7 @@ export default function ServicesSection() {
               key={service.id}
               {...service}
               buttonLabel="Conoce el servicio"
-              /* Configure the routes correctly */
-              href={`/servicios#tab-${service.id}`}
+              href={`/servicios#${SERVICES.find(({ id }) => id === service.id).tabId}`}
             />
           ))}
         </div>

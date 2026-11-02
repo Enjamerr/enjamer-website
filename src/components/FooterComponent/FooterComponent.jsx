@@ -36,6 +36,11 @@ function FooterComponent() {
                   Preguntas frecuentes
                 </Link>
               </li>
+              <li>
+                <Link to="/contacto" className="footer-link">
+                  Contáctanos
+                </Link>
+              </li>
             </ul>
           </div>
 
