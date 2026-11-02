@@ -6,7 +6,6 @@
   border-radius: 8px;
   color: #fff;
   background: linear-gradient(115deg, #520fb8, #4f46e5);
-  outline: none !important;
   box-sizing: border-box;
   text-decoration: none;
   text-align: center;
@@ -36,10 +35,6 @@
 }
 .common-button:active {
   scale: 0.99 !important;
-}
-.common-button:focus-visible {
-  outline: 2px solid #7c3cfc;
-  outline-offset: 3px;
 }
 
 .common-button-transparent {

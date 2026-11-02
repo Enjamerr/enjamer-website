@@ -135,11 +135,6 @@
     0 0 22px -6px rgba(203, 213, 225, 0.65);
 }
 
-.desktop-nav a:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-}
-
 .mobile-toggle {
   display: none;
   justify-content: center;
@@ -157,11 +152,6 @@
 .mobile-toggle svg {
   width: 22px;
   height: 22px;
-}
-
-.mobile-toggle:focus-visible {
-  outline: 2px solid #7c3cfc;
-  outline-offset: 2px;
 }
 
 .mobile-menu {
@@ -254,11 +244,6 @@
   .mobile-menu nav a.active {
     background: rgba(255, 255, 255, 0.24);
     color: #fff;
-  }
-
-  .mobile-menu nav a:focus-visible {
-    outline: 2px solid #7c3cfc;
-    outline-offset: 2px;
   }
 
   .mobile-menu nav .common-button {

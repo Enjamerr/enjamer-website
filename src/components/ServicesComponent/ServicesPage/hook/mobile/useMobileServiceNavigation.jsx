@@ -14,7 +14,9 @@ export default function useMobileServiceNavigation(services, initialServiceId) {
   const busy = useRef(false);
 
   useLayoutEffect(() => {
-    if (previous === null) return;
+    if (previous === null) {
+      return;
+    }
     const context = gsap.context(() => {
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       gsap
@@ -43,7 +45,9 @@ export default function useMobileServiceNavigation(services, initialServiceId) {
 
   const navigate = (step) => {
     const next = current + step;
-    if (busy.current || next < 0 || next >= services.length) return;
+    if (busy.current || next < 0 || next >= services.length) {
+      return;
+    }
     busy.current = true;
     direction.current = step;
     setPrevious(current);

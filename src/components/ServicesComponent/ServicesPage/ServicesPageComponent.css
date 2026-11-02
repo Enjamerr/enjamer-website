@@ -10,7 +10,6 @@
     sans-serif;
 }
 
-/* The sticky backdrop stays inside this page, without affecting the journey's flow. */
 .services-page__backdrop {
   position: absolute;
   inset: 0;

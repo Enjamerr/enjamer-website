@@ -113,7 +113,9 @@ function ServicesPageComponent() {
         <hr className="orientation__rule" />
         <Compass className="orientation__icon" aria-hidden="true" />
         <h2>¿Necesitas más información?</h2>
-        <p>Es <b>gratis</b>, solo da clic y pregunta.</p>
+        <p>
+          Es <b>gratis</b>, solo da clic y pregunta.
+        </p>
         <ButtonComponent text="Contactar" to="/contacto" />
         <hr className="orientation__rule" />
       </section>

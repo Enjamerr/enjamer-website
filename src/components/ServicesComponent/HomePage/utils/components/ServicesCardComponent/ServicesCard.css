@@ -28,7 +28,6 @@
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: clamp(1.5rem, 3vw, 2.5rem);
   align-items: center;
-
 }
 .services-card__main {
   min-width: 0;
