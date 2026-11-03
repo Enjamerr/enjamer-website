@@ -1,0 +1,312 @@
+.faq-page {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  color: #f5f7fa;
+  background: #0b0d14;
+  font:
+    400 14px/1.65 Inter,
+    sans-serif;
+}
+
+/* Same page-contained sticky image treatment as the process page. */
+.faq-page__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.faq-page__backdrop::before {
+  content: '';
+  display: block;
+  position: sticky;
+  top: 0;
+  height: 100lvh;
+  background-color: #0b0d14;
+  background-image:
+    linear-gradient(
+      180deg,
+      rgb(8 13 20 / 55%) 0%,
+      rgb(8 13 20 / 76%) 36%,
+      rgb(8 13 20 / 92%) 68%,
+      #0b0d14 100%
+    ),
+    url('../../assets/hero-image.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.faq-page__wrap {
+  width: min(1240px, calc(100% - 96px));
+  margin-inline: auto;
+}
+.faq-page__intro {
+  position: relative;
+  padding-block: max(8.75rem, calc(50svh - 13rem)) 65px;
+}
+.faq-page__intro::after {
+  content: '';
+  position: absolute;
+  top: 140px;
+  right: 0;
+  width: 125px;
+  height: 145px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background: linear-gradient(150deg, #7c3cfc10, #168bff03);
+  pointer-events: none;
+}
+.faq-page__intro .text-content {
+  align-items: flex-start;
+  gap: 26px;
+}
+.faq-page__intro .text-content__upper {
+  justify-content: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 0.17em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+.faq-page__intro .text-content__main {
+  max-width: 900px;
+}
+.faq-page__intro .text-content__paragraph {
+  max-width: 650px;
+  color: #9ba3b8;
+}
+.faq-page__layout {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 80px;
+  padding-bottom: clamp(10rem, 15vw, 14rem);
+}
+.faq-page__aside {
+  position: sticky;
+  top: 135px;
+  align-self: start;
+  padding: 30px;
+  border: 1px solid #ffffff1b;
+  border-radius: 14px;
+  background: #101824;
+}
+.faq-page__icon {
+  display: grid;
+  place-items: center;
+  width: 49px;
+  height: 49px;
+  border: 1px solid #ffffff14;
+  border-radius: 12px;
+  color: #ffd6e0;
+  background: #1f293755;
+  box-shadow:
+    5px 5px 12px #0005,
+    -3px -3px 10px #ffffff04;
+}
+.faq-page__aside h2,
+.faq-page__empty h2 {
+  font:
+    600 2rem/1.15 'Bodoni Moda',
+    Georgia,
+    serif;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+}
+.faq-page__aside h2 {
+  margin: 24px 0 20px;
+}
+.faq-page__aside p {
+  margin-bottom: 25px;
+  font-size: 0.875rem;
+  color: #9ba3b8;
+}
+.faq-page__questions {
+  min-width: 0;
+}
+.faq-page__search-label {
+  display: block;
+  margin-bottom: 12px;
+  color: #ffd6e0;
+  font-size: 12px;
+}
+.faq-page__search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px;
+  border: 1px solid #34404e;
+  border-radius: 12px;
+  background: #0b0d14;
+  box-shadow: inset 5px 5px 12px #0005;
+}
+.faq-page__search span {
+  color: #7c3cfc;
+  font-size: 27px;
+}
+.faq-page__search input {
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  color: #f5f7fa;
+  font:
+    400 14px Inter,
+    sans-serif;
+}
+.faq-page__search input::placeholder {
+  color: #9ba3b8;
+  opacity: 1;
+}
+.faq-page__search:focus-within {
+  outline: 2px solid #ffd6e0;
+  outline-offset: 4px;
+}
+.faq-page__count {
+  margin: 14px 0;
+  color: #9ba3b8;
+  font-size: 11px;
+}
+.faq-page__item {
+  border-bottom: 1px solid #ffffff1c;
+}
+.faq-page__item h3 {
+  margin: 0;
+}
+.faq-page__item button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 26px 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #f5f7fa;
+  font:
+    500 1rem/1.6 Inter,
+    sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+.faq-page__question {
+  display: flex;
+  gap: 23px;
+}
+.faq-page__number {
+  flex-shrink: 0;
+  padding-top: 3px;
+  color: #9ba3b8;
+  font-size: 0.75rem;
+}
+.faq-page__item button svg {
+  flex-shrink: 0;
+  color: #9ba3b8;
+  transition: transform 200ms ease;
+}
+.faq-page__item[data-expanded='true'] button svg {
+  transform: rotate(180deg);
+}
+.faq-page__item button:hover {
+  color: #ffd6e0;
+}
+.faq-page button:focus-visible,
+.faq-page a:focus-visible {
+  outline: 2px solid #ffd6e0;
+  outline-offset: 4px;
+}
+.faq-page__expansion {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows 200ms ease-out,
+    visibility 200ms;
+}
+.faq-page__expansion > div {
+  min-height: 0;
+  overflow: hidden;
+}
+.faq-page__expansion p {
+  padding: 0 30px 25px 42px;
+  color: #9ba3b8;
+  font-size: 0.9375rem;
+  line-height: 1.8;
+}
+.faq-page__item[data-expanded='true'] .faq-page__expansion {
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+.faq-page__empty {
+  padding: 30px 0;
+}
+.faq-page__empty h2 {
+  margin-bottom: 15px;
+}
+.faq-page__empty p {
+  color: #9ba3b8;
+  margin-bottom: 20px;
+}
+.faq-page__empty button {
+  min-height: 52px;
+  padding: 13px 23px;
+  border: 1px solid #ffffff20;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #1f29376b, #101824);
+  color: #e2e5ed;
+  font:
+    600 0.875rem Inter,
+    sans-serif;
+  cursor: pointer;
+}
+@keyframes faq-appear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .faq-page__intro {
+    animation: faq-appear 650ms ease-out both;
+  }
+}
+@media (max-width: 1200px) {
+  .faq-page__wrap {
+    width: calc(100% - 64px);
+  }
+  .faq-page__layout {
+    gap: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .faq-page__wrap {
+    width: calc(100% - 40px);
+  }
+  .faq-page__intro {
+    padding-block: max(7.5rem, calc(50svh - 13.75rem)) 40px;
+  }
+  .faq-page__layout {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 35px;
+  }
+  .faq-page__aside {
+    position: static;
+    width: 100%;
+  }
+  .faq-page__item button {
+    font-size: 0.9375rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-page__expansion,
+  .faq-page__item button svg {
+    transition: none;
+  }
+}
