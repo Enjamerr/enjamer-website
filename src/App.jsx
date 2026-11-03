@@ -5,6 +5,7 @@ import HowWeWorkPageComponent from './components/HowWeWorkComponent/HowWeWorkPag
 import AppPresentationProvider from './app/providers/AppPresentationProvider.jsx';
 import ScrollToTop from './app/ScrollToTop.jsx';
 import MainLayout from './app/MainLayout.jsx';
+import FaqPageComponent from './components/FaqPageComponent/FaqPageComponent.jsx';
 
 import ServicesPageComponent from './components/ServicesComponent/ServicesPage/ServicesPageComponent.jsx';
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/contacto" element={<ContactPageComponent />} />
           <Route path="/como-trabajamos" element={<HowWeWorkPageComponent />} />
           <Route path="/servicios" element={<ServicesPageComponent />} />
+          <Route path="/preguntas-frecuentes" element={<FaqPageComponent />} />
         </Route>
         <Route
           path="*"
