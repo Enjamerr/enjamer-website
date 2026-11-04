@@ -25,6 +25,22 @@
 .header__video {
   visibility: hidden;
 }
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .header__background {
+    /* The central mullion is at x=944 in the 1920px source. Align it
+       with the centered actions; keep the handshake at the hero's mid-height. */
+    width: calc(100% / 0.9833333333);
+    height: calc(100% / 0.7);
+    right: auto;
+    bottom: auto;
+    object-position: 49.16666667% 35%;
+    /* Keep the fade at the hero's original height despite the taller media. */
+    -webkit-mask-size: 100% 70%;
+    mask-size: 100% 70%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+}
 .header[data-video='visible'] .header__video {
   visibility: visible;
 }

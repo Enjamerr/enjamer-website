@@ -35,7 +35,8 @@ export default function useHeaderAnimation(entranceCompleted, finalFrame, onReve
         const { desktop, reducedMotion } = context.conditions;
         const skipIntro = entranceCompleted.current || introComplete || videoState.started;
         const canUseVideo = desktop && !reducedMotion;
-        const resumeVideo = canUseVideo && videoState.started;
+        const useFinalFrame = canUseVideo && videoState.ended && Boolean(finalFrame.current);
+        const resumeVideo = canUseVideo && videoState.started && !useFinalFrame;
         let contentShown = skipIntro;
         let revealed = skipIntro;
         let disposed = false;
@@ -43,7 +44,7 @@ export default function useHeaderAnimation(entranceCompleted, finalFrame, onReve
         let videoFrameCallback;
 
         if (canUseVideo) {
-          image.src = heroVideoPoster;
+          image.src = useFinalFrame ? finalFrame.current : heroVideoPoster;
         }
 
         header.dataset.phase = skipIntro ? 'ready' : 'waiting';
