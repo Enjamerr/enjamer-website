@@ -231,9 +231,15 @@ export default function ContactPageComponent() {
             type="submit"
             className="common-button contact-form__submit"
             disabled={isSubmitting}
+            disabled
           >
             Contactar
           </button>
+
+          <label htmlFor="" className="contact-form__consent">
+            Form under maintenance; no personal data is being collected. Please try again later.
+            Thank you.
+          </label>
 
           <p className="contact-form__status" role="status" aria-live="polite">
             {result?.ok ? result.message : null}
