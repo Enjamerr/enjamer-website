@@ -1,6 +1,7 @@
 import { useEffectEvent, useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import heroVideo from '../../../assets/hero-video.mp4';
+import heroVideoPoster from '../../../assets/hero-video-poster.jpg';
 import { animateHeaderContent } from '../utils/animateHeaderContent.js';
 
 let introComplete = false;
@@ -39,6 +40,11 @@ export default function useHeaderAnimation(entranceCompleted, finalFrame, onReve
         let revealed = skipIntro;
         let disposed = false;
         let watchdog;
+        let videoFrameCallback;
+
+        if (canUseVideo) {
+          image.src = heroVideoPoster;
+        }
 
         header.dataset.phase = skipIntro ? 'ready' : 'waiting';
         header.dataset.video = 'hidden';
@@ -118,7 +124,19 @@ export default function useHeaderAnimation(entranceCompleted, finalFrame, onReve
             return;
           }
           videoState.started = true;
-          header.dataset.video = 'visible';
+          const showVideo = () => {
+            if (!disposed) {
+              header.dataset.video = 'visible';
+            }
+          };
+          if (video.requestVideoFrameCallback) {
+            if (videoFrameCallback !== undefined) {
+              video.cancelVideoFrameCallback(videoFrameCallback);
+            }
+            videoFrameCallback = video.requestVideoFrameCallback(showVideo);
+          } else {
+            showVideo();
+          }
         };
         const rememberTime = () => {
           if (!disposed && Number.isFinite(video.currentTime)) {
@@ -186,6 +204,7 @@ export default function useHeaderAnimation(entranceCompleted, finalFrame, onReve
           video.load();
         } else if (canUseVideo && !skipIntro) {
           bindVideoEvents();
+          video.preload = 'auto';
           video.src = heroVideo;
           watchProgress();
           video.play().catch(fallback);
@@ -199,6 +218,9 @@ export default function useHeaderAnimation(entranceCompleted, finalFrame, onReve
 
         return () => {
           disposed = true;
+          if (videoFrameCallback !== undefined) {
+            video.cancelVideoFrameCallback(videoFrameCallback);
+          }
           clearTimeout(watchdog);
           saveVideoState();
           unbindVideoEvents();
