@@ -1,15 +1,22 @@
+import { lazy } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-import ContactPageComponent from './components/ContactPageComponent/ContactPageComponent.jsx';
 import HomePageComponent from './components/HomePageComponent/HomePageComponent.jsx';
-import HowWeWorkPageComponent from './components/HowWeWorkComponent/HowWeWorkPage/HowWeWorkPageComponent.jsx';
 import AppPresentationProvider from './app/providers/AppPresentationProvider.jsx';
 import ScrollToTop from './app/ScrollToTop.jsx';
 import MainLayout from './app/MainLayout.jsx';
-import FaqPageComponent from './components/FaqPageComponent/FaqPageComponent.jsx';
-
-import ServicesPageComponent from './components/ServicesComponent/ServicesPage/ServicesPageComponent.jsx';
 
 import './App.css';
+
+const ContactPageComponent = lazy(
+  () => import('./components/ContactPageComponent/ContactPageComponent.jsx'),
+);
+const HowWeWorkPageComponent = lazy(
+  () => import('./components/HowWeWorkComponent/HowWeWorkPage/HowWeWorkPageComponent.jsx'),
+);
+const ServicesPageComponent = lazy(
+  () => import('./components/ServicesComponent/ServicesPage/ServicesPageComponent.jsx'),
+);
+const FaqPageComponent = lazy(() => import('./components/FaqPageComponent/FaqPageComponent.jsx'));
 
 function App() {
   return (

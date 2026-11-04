@@ -4,7 +4,7 @@ import { AppPresentationContext } from '../../app/providers/AppPresentationConte
 import TextContentComponent from '../common/TextContentComponent/TextContentComponent.jsx';
 import ButtonComponent from '../common/ButtonComponent/ButtonComponent.jsx';
 import FaqItemComponent from './utils/components/FaqItemComponent/FaqItemComponent.jsx';
-import { getFaqData } from './utils/getFaqData.js';
+import { getFaqData } from './service/getFaqData.js';
 import { normalizeSearch } from './utils/normalizeSearch.js';
 import { navigateFaqQuestions } from './utils/navigateFaqQuestions.js';
 import './FaqPageComponent.css';

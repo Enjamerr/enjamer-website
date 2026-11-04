@@ -6,8 +6,11 @@ export default function MainLayout() {
   return (
     <>
       <Navbar />
-      <Outlet />
+      <Suspense fallback={<p role="status">Cargando página…</p>}>
+        <Outlet />
+      </Suspense>
       <FooterComponent />
     </>
   );
 }
+import { Suspense } from 'react';
