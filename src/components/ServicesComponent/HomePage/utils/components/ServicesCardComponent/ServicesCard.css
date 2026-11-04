@@ -84,7 +84,6 @@
 .services-card__button--glass {
   -webkit-user-select: none;
   user-select: none;
-  outline: none;
   margin-top: auto;
   align-self: flex-start;
   display: inline-flex;

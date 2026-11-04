@@ -18,6 +18,8 @@ const ServicesPageComponent = lazy(
 );
 const FaqPageComponent = lazy(() => import('./components/FaqPageComponent/FaqPageComponent.jsx'));
 
+const OurMain = lazy(() => import('./components/OurComponent/OurMain.jsx'));
+
 function App() {
   return (
     <AppPresentationProvider>
@@ -25,6 +27,7 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePageComponent />} />
+          <Route path="/nosotros/*" element={<OurMain />} />
           <Route path="/contacto" element={<ContactPageComponent />} />
           <Route path="/como-trabajamos" element={<HowWeWorkPageComponent />} />
           <Route path="/servicios" element={<ServicesPageComponent />} />
@@ -37,7 +40,7 @@ function App() {
             <>
               <center>
                 <p>404 - Página no encontrada</p>
-                <Link to="/">Volver</Link>
+                <Link to="/">Ir a inicio</Link>
               </center>
             </>
           }

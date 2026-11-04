@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import ButtonComponent from '../common/ButtonComponent/ButtonComponent';
-import { NAV_CTA, NAV_LINKS } from './utils/navLinks.js';
+import DropdownComponent from '../common/DropdownComponent/DropdownComponent.jsx';
+import { NAV_CTA, NAV_LINKS, NAV_DROPDOWN } from './utils/navLinks.js';
 import './NavbarComponent.css';
 
 function trackGlow(event) {
@@ -20,6 +21,15 @@ function DesktopNav({ links }) {
   return (
     <nav className="desktop-nav" aria-label="Navegación principal">
       {links.map((link) => {
+        if (link.id === 'nosotros') {
+          return (
+            <DropdownComponent
+              key={link.id}
+              options={NAV_DROPDOWN}
+              navigation={{ link, onMouseMove: trackGlow }}
+            />
+          );
+        }
         return (
           <NavLink
             key={link.id}
@@ -49,6 +59,15 @@ function MobileMenu({ links, cta, open, onNavigate }) {
       </div>
       <nav aria-label="Navegación móvil">
         {links.map((link) => {
+          if (link.id === 'nosotros') {
+            return (
+              <DropdownComponent
+                key={link.id}
+                options={NAV_DROPDOWN}
+                navigation={{ link, inline: true, onNavigate }}
+              />
+            );
+          }
           return (
             <NavLink
               key={link.id}

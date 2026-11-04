@@ -49,20 +49,29 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .bottom-panel {
     border-radius: 12px;
     padding: clamp(2rem, 6vw, 4rem) 1.25rem;
   }
 
   .bottom-panel-inner {
+    width: 100%;
     flex-direction: column;
   }
-  .principal .text-content {
+  .bottom-panel .principal {
+    width: 100%;
+    min-width: 0;
+  }
+  .bottom-panel .principal .text-content {
+    align-items: center;
     text-align: center;
   }
-  .text-content__upper {
-    justify-content: center !important;
+  .bottom-panel .principal .text-content__group {
+    width: 100%;
+  }
+  .bottom-panel .principal .text-content__upper {
+    justify-content: center;
   }
   .bottom-panel .button_component {
     display: flex;
