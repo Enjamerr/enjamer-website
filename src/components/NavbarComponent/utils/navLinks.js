@@ -38,3 +38,10 @@ export const NAV_CTA = {
   label: 'Cuéntanos qué necesitas',
   to: '/contacto',
 };
+
+export const NAV_DROPDOWN = [
+  { id: 'proposito', label: 'Propósito', to: '/nosotros/proposito' },
+  { id: 'nuestro-nombre', label: 'Nuestro nombre', to: '/nosotros/nuestro-nombre' },
+  { id: 'valores', label: 'Valores', to: '/nosotros/valores' },
+  { id: 'principios', label: 'Principios', to: '/nosotros/principios' },
+];

@@ -1,0 +1,50 @@
+.name-page__story {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+.name-page__story > div {
+  min-width: 0;
+  text-align: center;
+}
+.name-page__story h2 {
+  font:
+    600 clamp(1.75rem, 3vw, 2.5rem) 'Bodoni Moda',
+    Georgia,
+    serif;
+  margin-bottom: 1.5rem;
+}
+.name-page__story p {
+  line-height: 1.85;
+  margin-top: 1rem;
+}
+.name-page__story figure {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background: #101824b3;
+  border: 1px solid #ffffff26;
+  border-radius: 20px;
+  text-align: center;
+  backdrop-filter: blur(16px);
+}
+.name-page__story img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.name-page__story figcaption {
+  color: #cbd5e1;
+  line-height: 1.75;
+  font-size: 0.95rem;
+  margin-top: 2rem;
+}
+@media (width < 1000px) {
+  .name-page__story {
+    grid-template-columns: 1fr;
+  }
+  .name-page__story h2 {
+    width: 100%;
+    margin-inline: auto;
+    text-align: center;
+  }
+}

@@ -1,0 +1,10 @@
+.our-intro {
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  padding: 130px clamp(1.25rem, 5vw, 4rem) 100px;
+  text-align: center;
+}
+.our-intro .text-content {
+  max-width: 960px;
+}

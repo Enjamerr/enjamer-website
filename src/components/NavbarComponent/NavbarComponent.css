@@ -276,3 +276,24 @@
     transition: none;
   }
 }
+
+/* Anchor the dropdown to the bottom of the bar, keeping its trigger centered. */
+.desktop-nav {
+  align-self: stretch;
+}
+.desktop-nav > .dropdown--navigation {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+}
+.desktop-nav .dropdown-option {
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 9px;
+}
+.desktop-nav .dropdown-option.active::before {
+  opacity: 0.3;
+}
+.mobile-menu nav .dropdown-option {
+  margin: 4px 6px;
+}
