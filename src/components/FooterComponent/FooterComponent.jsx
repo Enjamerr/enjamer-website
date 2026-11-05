@@ -77,7 +77,7 @@ function FooterComponent() {
               <li>
                 <a href="mailto:info@enjamer.com" className="footer-link">
                   support@enjamer.com
-                  <p>Suporte tecnológico</p>
+                  <p>Soporte tecnológico</p>
                 </a>
               </li>
               <li>

@@ -15,7 +15,7 @@ export const FAQ_ITEMS = [
     id: 2,
     question: '¿Cómo es el primer contacto?',
     answer:
-      'La conversación comienza con tu necesidad. Después podemos coordinar una reunión para entender el contexto y definir el siguiente paso. Este prototipo permite probar el formulario, pero todavía no recibe solicitudes reales.',
+      'La conversación comienza con tu necesidad. Después podemos coordinar una reunión para entender el contexto y definir el siguiente paso.',
   },
   {
     id: 3,
@@ -63,7 +63,7 @@ export const FAQ_ITEMS = [
     id: 10,
     question: '¿Cómo se protege la información que comparto?',
     answer:
-      'El acceso, el uso y los compromisos de confidencialidad se definen antes de tratar información del proyecto. Este prototipo no envía ni guarda los datos del formulario. La política definitiva está pendiente de revisión y aprobación.',
+      'El acceso, el uso y los compromisos de confidencialidad se definen antes de tratar información del proyecto.',
   },
   {
     id: 11,
