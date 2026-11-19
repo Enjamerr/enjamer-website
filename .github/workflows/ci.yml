@@ -10,9 +10,32 @@ permissions:
   contents: read
 
 jobs:
+  select-runner:
+    name: Check server availability
+    runs-on: ubuntu-latest
+
+    outputs:
+      runner: ${{ steps.check.outputs.runner }}
+
+    steps:
+      - name: Check server
+        id: check
+        env:
+          SERVER_URL: ${{ vars.SERVER_HEALTH_URL }}
+        run: |
+          if [[ -n "$SERVER_URL" ]] && \
+             curl -sS -o /dev/null --connect-timeout 3 --max-time 8 "$SERVER_URL"; then
+            echo 'runner=["self-hosted","Linux","X64"]' >> "$GITHUB_OUTPUT"
+            echo "Self-hosted runner selected."
+          else
+            echo 'runner="ubuntu-latest"' >> "$GITHUB_OUTPUT"
+            echo "GitHub-hosted runner selected."
+          fi
+
   validate:
     name: Validate React Project
-    runs-on: [self-hosted, Linux, X64]
+    needs: select-runner
+    runs-on: ${{ fromJSON(needs.select-runner.outputs.runner) }}
 
     steps:
       - name: Checkout repository
